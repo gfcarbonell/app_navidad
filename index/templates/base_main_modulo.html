@@ -1,0 +1,50 @@
+{% extends 'base_main.html '%}
+{% load static from staticfiles %}
+
+{% block header %}
+	<div class="header-modulo {% block header-modulo-background %} background-black-transparent {% endblock header-modulo-background %}">
+		<!-- Avatar - System -->
+		<figure class="header-modulo-system">
+			<img 
+			src="{% block src_avatar_system %} {% static "imagenes/ico/System_1.ico"%} {% endblock src_avatar_system %}" 
+			alt="{% block alt_avatar_system %} Sistema E.R.P. Municipal {% endblock alt_avatar_system %}">
+		</figure>
+		<!-- Nombre - Sistema -->
+		<div class="header-modulo-entidad">
+			<h2 class="titulo text-center color-white text-shadow-black">
+				<a href="{% url 'catalogo_modulo_menu_sub_menu:main' %}" class="link"> Sistema E.R.P. Municipal </a>
+			</h2>
+		</div>
+		<!-- Avatar - Módulo -->
+		<figure class="header-modulo-system">
+			<img 
+			src="{% block src_avatar_modulo %} {% static "imagenes/ico/System_Security_2.ico"%} {% endblock src_avatar_modulo %}" 
+			alt="{% block alt_avatar_modulo %} Login {% endblock alt_avatar_modulo %}">
+		</figure>
+	</div>
+{% endblock header %}
+
+
+{% block footer %}
+	<div class="footer-modulo {% block footer-modulo-background %} background-black-transparent {% endblock footer-modulo-background %}">
+		<figure class="footer-modulo-logotipo">
+			<img src="{% static "imagenes/png/Escudo_San_Andres.png" %}" alt=""/>
+			<figcaption class="footer-modulo-logotipo-siglas color-red font-weight-bolder">
+				M.D.S.A.
+			</figcaption>
+		</figure>
+
+		<div class="footer-modulo-web margin-auto-left-right">
+			<a class="rotulo link color-white text-center text-shadow-black font-weight-bolder">
+				Municipalidad Distrital de San Andrés
+			</a>
+		</div>
+
+		<figure class="footer-modulo-logotipo" id="creador">
+			<figcaption class="footer-modulo-logotipo-siglas color-red font-weight-bolder">
+				S.G.T.I.
+			</figcaption>
+			<img class="radius-circular" src="{% static "imagenes/jpg/Ojo_Bionico_1.jpg" %}" alt=""/>
+		</figure>
+	</div>
+{% endblock footer %}

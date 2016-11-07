@@ -1,0 +1,79 @@
+{% extends 'base_main_modulo_nav.html'%}
+{% load static from staticfiles %}
+{% block aside %}
+	<div class="aside-modulo" id="aside_menu_modulo">
+		<!-- Head -->
+		<div class="aside-modulo-head border-bottom-white-1 {% block background_head_menu %} background-verde-pastel {% endblock background_head_menu %}">
+			<p class="color-white font-size-text-1-5 text-center text-shadow-black font-weight-bolder">
+				Menu - Módulo
+			</p>
+			<div id="boton_close_menu_container">
+				
+			</div>
+		</div>
+		<!-- Menu -->
+		<ul class="aside-modulo-items">
+			{%for catalogo_modulo in catalogos_modulos%} 
+			<!-- Menu - Item -->
+			<li class="aside-modulo-items-item">
+				<!-- Menu - Item - Container -->
+				<figure class="aside-modulo-items-item-container">
+					<!-- Menu - Item - Container - Imagen -->
+					<a href="{{catalogo_modulo.url}}">
+						<img 
+						src="{{catalogo_modulo.imagen.url}}"
+						alt="{{catalogo_modulo.modulo}}">
+					</a>
+					<!-- Menu - Item - Container - Nombre -->
+					<figcaption  
+					class="{% block background_nombre_modulo %} background-verde-pastel {% endblock background_nombre_modulo %}
+					border-white-1 border-radius-medium box-shadow-black-transparent">
+						<!-- Menu - Item - Container -Imagen - Link -->
+						<a href="{{catalogo_modulo.url}}" class="link text-shadow-black font-weight-bolder ">
+							{{catalogo_modulo.modulo}}
+						</a>
+					</figcaption>
+				</figure>
+			</li>
+			{% endfor %} 
+		</ul>
+	</div>
+{% endblock aside %}
+
+{% block section %}
+	<!-- Saludo -->
+	<div class="container">
+		<p class="titulo padding-full color-white text-shadow-black font-weight-bolder">
+			Bienvenidos
+		</p>
+		<p class="sub-rayado background-red">
+			
+		</p>
+	</div>
+	<div class="section-modulo">
+		<!-- Menu -->
+		<ul class="menu">
+			 {%for catalogo_modulo_menu in catalogos_modulos_menus%} 
+			<!-- Menu - Item -->
+			<li class="menu-item">
+				<!-- Menu - Item - Container -->
+				<figure class="menu-item-container ">
+					<!-- Menu - Item - Container - Imagen -->
+					<img 
+					src="{% block imagen_src %} {{catalogo_modulo_menu.imagen.url}} {% endblock imagen_src %}" 
+					alt="{% block imagen_alt %} {{catalogo_modulo_menu.modulo}} {% endblock imagen_alt %}" 
+					class="menu-item-container-imagen">
+					<!-- Menu - Item - Container - Nombre -->
+					<figcaption  class="menu-item-container-nombre border-white-1 border-radius-medium box-shadow-black-transparent 
+					{% block background_nombre_item %} background-verde-pastel {% endblock background_nombre_item %}">
+						<!-- Menu - Item - Container -Imagen - Link -->
+						<a href="{{catalogo_modulo_menu.url}}" class="link text-shadow-black font-weight-bolder ">
+							{% block nombre_item %} {{catalogo_modulo_menu.menu}} {% endblock nombre_item %}
+						</a>
+					</figcaption>
+				</figure>
+			</li>
+			{% endfor %} 
+		</ul>
+	</div>
+{% endblock section %}

@@ -1,0 +1,1291 @@
+{% extends 'base_control_panel.html '%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block title %}
+	Control de Asistencia | Nuevo Empleado
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+
+{% block panel_left%}
+<figure class="container">
+	<!-- Imagen -->
+	<div class="container">
+		<img src="{% static "imagenes/png/No_Image_1.png" %}" alt="" id="panel_left_imagen"
+		class="imagen-perfil oveflow-hidden border-black-2 margin-auto-left-right background-white"/>
+	</div>
+	<!-- Fotografia -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.model_form_empleado.fotografia.auto_id }}" class="label-panel ">
+				{{form.model_form_empleado.fotografia.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel" id="container_fotografia">
+
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.model_form_empleado.fotografia.errors}}
+		</div>
+	</div>
+	<!-- Descripción Empleado -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.model_form_empleado.descripcion_empleado.auto_id }}" class="label-panel ">
+				{{form.model_form_empleado.descripcion_empleado.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				{{form.model_form_empleado.descripcion_empleado}}
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.model_form_empleado.descripcion_empleado.errors}}
+		</div>
+	</div>
+	<!-- Observación Empleado -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.model_form_empleado.observacion_empleado.auto_id }}" class="label-panel ">
+				{{form.model_form_empleado.observacion_empleado.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				{{form.model_form_empleado.observacion_empleado}}
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.model_form_empleado.observacion_empleado.errors}}
+		</div>
+	</div>
+</figure>
+{% endblock panel_left%}
+
+
+{% block panel_right_componentes %}
+<!-- Panel - Personales -->
+<div class="panel" id="panel_personales">
+	<!-- Apellidos -->
+	<div class="container-componente-panel-dual">
+		<!-- Apellido Paterno -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.apellido_paterno.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.apellido_paterno.label}}
+					</label>
+
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.apellido_paterno}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.apellido_paterno.errors}}
+			</div>
+		</div>
+		<!-- Apellido Materno -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.apellido_materno.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.apellido_materno.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.apellido_materno}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.apellido_materno.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Nombres -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.nombre.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.nombre.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.nombre}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.nombre.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Documento Identificación -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.documento_identificacion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.documento_identificacion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel " id="container_documento_identificacion">
+
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.documento_identificacion.errors}}
+			</div>
+		</div>
+		<!-- Número Documento Identificación -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.numero_documento_identificacion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.numero_documento_identificacion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel" id="container_numero_documento_identificacion">
+
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error" id="error_numero_documento_identificacion">
+				{{form.model_form_empleado.numero_documento_identificacion.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Fecha Nacimento -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.fecha_nacimiento.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.fecha_nacimiento.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.fecha_nacimiento|attr:"type:date"}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.fecha_nacimiento.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Género -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.genero.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.genero.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.genero}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.genero.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Estado Civil -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.estado_civil.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.estado_civil.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.estado_civil}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.estado_civil.errors}}
+			</div>
+		</div>
+		<!-- Grupo Sanguíneo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.grupo_sanguineo.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.grupo_sanguineo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.model_form_empleado.grupo_sanguineo}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.grupo_sanguineo.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Hijo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.hijo.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.hijo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel" id="container_input_hijo">
+
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.hijo.errors}}
+			</div>
+		</div>
+		<!-- Número Hijo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.numero_hijo.auto_id }}" class="label-panel ">
+					{{form.model_form_empleado.numero_hijo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.numero_hijo|attr:"disabled:disabled"}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.numero_hijo.errors}}
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Panel - Domicilio -->
+<div class="panel display-none" id="panel_domicilio">
+	<div class="container-componente-panel-dual">
+		<!-- Distrito -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.distrito.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.distrito.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.distrito}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.distrito.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Zona -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.zona.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.zona.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.zona}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.zona.errors}}
+			</div>
+		</div>
+		<!-- Vía -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.via.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.via.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.via}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.via.errors}}
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container-componente-panel-group">
+			<!-- Prefijo Bis Vial -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.prefijo_bis_vial.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.prefijo_bis_vial.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.prefijo_bis_vial}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.prefijo_bis_vial.errors}}
+				</div>
+			</div>
+
+			<!-- Número Letra Asociado Prefijo Bis Vial -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.numero_letra_asociado_prefijo_bis_vial.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_vial.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_vial}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_vial.errors}}
+				</div>
+			</div>
+
+			<!-- Número Letra Asociado Prefijo Bis Vial -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.cuadrante_vial.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.cuadrante_vial.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.cuadrante_vial}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.cuadrante_vial.errors}}
+				</div>
+			</div>
+	</div>
+	<div class="container-componente-panel-group">
+			<!-- Número Vía Generadora -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.numero_via_generadora.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.numero_via_generadora.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.numero_via_generadora}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.numero_via_generadora.errors}}
+				</div>
+			</div>
+			<!-- Número Letra Asociado Vía Generadora -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.numero_letra_asociado_numero_via_generadora.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.numero_letra_asociado_numero_via_generadora.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.numero_letra_asociado_numero_via_generadora}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.numero_letra_asociado_numero_via_generadora.errors}}
+				</div>
+			</div>
+
+			<!-- Prefijo Bis Número Letra Asociado Vía Generadora -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.prefijo_bis_numero_via_generadora.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.prefijo_bis_numero_via_generadora.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.prefijo_bis_numero_via_generadora}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.prefijo_bis_numero_via_generadora.errors}}
+				</div>
+			</div>
+
+			<!-- Número Letra Asociado Prefijo Bis Vía Generadora -->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.numero_letra_asociado_prefijo_bis_numero_via_generadora.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_numero_via_generadora.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_numero_via_generadora}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.numero_letra_asociado_prefijo_bis_numero_via_generadora.errors}}
+				</div>
+			</div>
+
+			<!-- Número Placa-->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.numero_placa.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.numero_placa.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.numero_placa}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.numero_placa.errors}}
+				</div>
+			</div>
+
+			<!-- Cuadrante Vía Generadora-->
+			<div class="componente-panel-group">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.cuadrante_via_generadora.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.cuadrante_via_generadora.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.cuadrante_via_generadora}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.cuadrante_via_generadoracuadrante_via_generadora.errors}}
+				</div>
+			</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Nombre Zona / Via -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.division_area_urbana.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.division_area_urbana.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.division_area_urbana}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.division_area_urbana.errors}}
+			</div>
+		</div>
+		<!-- Número Letra Asociado Nombre Zona / Via -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.nombre_division_area_urbana.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.nombre_division_area_urbana.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.nombre_division_area_urbana}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.nombre_division_area_urbana.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.nucleo_residencial.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.nucleo_residencial.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.nucleo_residencial}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.nucleo_residencial.errors}}
+			</div>
+		</div>
+		<!-- Número Letra Asociado Nombre Zona / Via -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.nombre_nucleo_residencial.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.nombre_nucleo_residencial.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.nombre_nucleo_residencial}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.nombre_nucleo_residencial.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Nombre Zona / Via -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.tipo_predio.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.tipo_predio.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.tipo_predio}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.tipo_predio.errors}}
+			</div>
+		</div>
+		<!-- Número Letra Asociado Nombre Zona / Via -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.nombre_tipo_predio.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.nombre_tipo_predio.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.nombre_tipo_predio}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.nombre_tipo_predio.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+			<!-- Nombre Zona / Via -->
+			<div class="componente-panel-dual">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.ubicacion_predio.auto_id }}" class="label-panel font-weight-bolder">
+						{{form.model_form_empleado.ubicacion_predio.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.ubicacion_predio}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.ubicacion_predio.errors}}
+				</div>
+			</div>
+			<!-- Número Letra Asociado Nombre Zona / Via -->
+			<div class="componente-panel-dual">
+				<!-- Field -->
+				<div class="field-panel">
+					<!-- Label -->
+					<div class="container-label-panel">
+						<label for="{{ form.model_form_empleado.identificador_ubicacion_predio.auto_id }}" class="label-panel">
+						{{form.model_form_empleado.identificador_ubicacion_predio.label}}
+						</label>
+					</div>
+					<!-- Input -->
+					<div class="input-panel">
+						{{form.model_form_empleado.identificador_ubicacion_predio}}
+					</div>
+				</div>
+				<!-- Error -->
+				<div class="error">
+					{{form.model_form_empleado.identificador_ubicacion_predio.errors}}
+				</div>
+			</div>
+		</div>
+	<div class="container-componente-panel-dual">
+				<!-- Nombre Zona / Via -->
+				<div class="componente-panel-dual">
+					<!-- Field -->
+					<div class="field-panel">
+						<!-- Label -->
+						<div class="container-label-panel">
+							<label for="{{ form.model_form_empleado.complemento_ubicacion_tipo_predio.auto_id }}" class="label-panel font-weight-bolder">
+							{{form.model_form_empleado.complemento_ubicacion_tipo_predio.label}}
+							</label>
+						</div>
+						<!-- Input -->
+						<div class="input-panel">
+							{{form.model_form_empleado.complemento_ubicacion_tipo_predio}}
+						</div>
+					</div>
+					<!-- Error -->
+					<div class="error">
+						{{form.model_form_empleado.complemento_ubicacion_tipo_predio.errors}}
+					</div>
+				</div>
+				<!-- Número Letra Asociado Nombre Zona / Via -->
+				<div class="componente-panel-dual">
+					<!-- Field -->
+					<div class="field-panel">
+						<!-- Label -->
+						<div class="container-label-panel">
+							<label for="{{ form.model_form_empleado.numero_letra_complemento_ubicacion_tipo_predio.auto_id }}" class="label-panel">
+							{{form.model_form_empleado.numero_letra_complemento_ubicacion_tipo_predio.label}}
+							</label>
+						</div>
+						<!-- Input -->
+						<div class="input-panel">
+							{{form.model_form_empleado.numero_letra_complemento_ubicacion_tipo_predio}}
+						</div>
+					</div>
+					<!-- Error -->
+					<div class="error">
+						{{form.model_form_empleado.numero_letra_complemento_ubicacion_tipo_predio.errors}}
+					</div>
+				</div>
+			</div>
+
+</div>
+<!-- Panel - Empleado -->
+<div class="panel display-none" id="panel_empleado">
+	<div class="container-componente-panel-dual">
+		<!-- Área -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.area.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.area.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.area}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.area.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Tipo Empleado -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.tipo_empleado.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.tipo_empleado.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.tipo_empleado}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.tipo_empleado.errors}}
+			</div>
+		</div>
+		<!-- Cargo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.cargo.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.cargo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.cargo}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.cargo.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Área -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.grado_instruccion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.grado_instruccion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.grado_instruccion}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.grado_instruccion.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Profesión -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.profesion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.profesion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.profesion}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.profesion.errors}}
+			</div>
+		</div>
+		<!-- Cargo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.ocupacion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.ocupacion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.ocupacion}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.ocupacion.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Fecha Inicio Contratación -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.fecha_inicio_contratacion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.fecha_inicio_contratacion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.fecha_inicio_contratacion |attr:"type:date" }}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.fecha_inicio_contratacion.errors}}
+			</div>
+		</div>
+		<!-- Fecha Fin Contratación -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.fecha_fin_contratacion.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.fecha_fin_contratacion.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.fecha_fin_contratacion | attr:"type:date"}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.fecha_fin_contratacion.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Activo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.activo.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.activo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.activo}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.activo.errors}}
+			</div>
+		</div>
+		<!-- Fecha Cese -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.fecha_cese.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.fecha_cese.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.fecha_cese | attr:"type:date"}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.fecha_cese.errors}}
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Panel - Usuario -->
+<div class="panel display-none" id="panel_usuario">
+	<div class="container-componente-panel-dual">
+		<!-- Nombre de Usuario -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.username.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_usuario.username.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.username}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.username.errors}}
+			</div>
+		</div>
+	</div>
+
+	<div class="container-componente-panel-dual">
+		<!-- Password -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.password1.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_usuario.password1.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.password1}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.password1.errors}}
+			</div>
+		</div>
+		<!-- Confirmar Password -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.password2.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_usuario.password2.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.password2}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.password2.errors}}
+			</div>
+		</div>
+	</div>
+	<!-- E-Mail -->
+	<div class="container-componente-panel-dual">
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.email.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_usuario.email.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.email}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.email.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Número Tarjeta Mágnetica -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.numero_tarjeta_magnetica.auto_id }}" class="label-panel">
+					{{form.model_form_usuario.numero_tarjeta_magnetica.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.numero_tarjeta_magnetica}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.numero_tarjeta_magnetica.errors}}
+			</div>
+		</div>
+		<!-- Número Acceso Biómetrico -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_usuario.numero_acceso_biometrico.auto_id }}" class="label-panel">
+					{{form.model_form_usuario.numero_acceso_biometrico.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_usuario.numero_acceso_biometrico}}
+					{{form.model_form_usuario.nombre_host}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_usuario.numero_acceso_biometrico.errors}}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Panel - Extras -->
+<div class="panel display-none" id="panel_extras">
+	<div class="container-componente-panel-dual">
+		<!-- Télefono -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.telefono.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.telefono.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.telefono}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.telefono.errors}}
+			</div>
+		</div>
+		<!-- Celular -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.celular.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.celular.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.celular}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.celular.errors}}
+			</div>
+		</div>
+	</div>
+
+	<div class="container-componente-panel-dual">
+		<!-- E-Mail -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.email.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.model_form_empleado.email.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.email}}
+
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.email.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Observación Persona -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.model_form_empleado.observacion_persona.auto_id }}" class="label-panel">
+					{{form.model_form_empleado.observacion_persona.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					{{form.model_form_empleado.observacion_persona}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.model_form_empleado.observacion_persona.errors}}
+			</div>
+		</div>
+	</div>
+
+</div>
+{% endblock panel_right_componentes %}
+
+
+
+
+{% block background_panel_submit %} background-red {% endblock background_panel_submit %}
+
+
+{% block script_template %}
+	<script id ="panel_menu_template" type="text/template">
+		{% block panel_menu_item %}
+		<li class="background-white">
+			<a href="" class="link color-black" id="menu_personales">
+				Personales
+			</a>
+		</li>
+		<li>
+			<a href="" class="link" id="menu_domicilio">
+				Domicilio
+			</a>
+		</li>
+		<li>
+			<a href="" class="link" id="menu_empleado">
+				Empleado
+			</a>
+		</li>
+		<li>
+			<a href="" class="link" id="menu_usuario">
+				Usuario
+			</a>
+		</li>
+		<li>
+			<a href="" class="link" id="menu_extras">
+				Extras
+			</a>
+		</li>
+		{% endblock panel_menu_item %}
+	</script>
+
+	<script id ="input_hijo_template" type="text/template">
+		{{form.model_form_empleado.hijo}}
+	</script>
+	<script id ="imagen_template" type="text/template">
+		{{form.model_form_empleado.fotografia}}
+	</script>
+	<script id ="documento_identificacion_template" type="text/template">
+		{{form.model_form_empleado.documento_identificacion}}
+	</script>
+	<script id ="numero_documento_identificacion_template" type="text/template">
+		{{form.model_form_empleado.numero_documento_identificacion}}
+	</script>
+{% endblock script_template %}

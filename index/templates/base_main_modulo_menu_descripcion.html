@@ -1,0 +1,69 @@
+{% extends 'base_main_modulo_nav.html'%}
+{% load static from staticfiles %}
+{% block section %}
+	<!-- Módulo -->
+	<div class="modulo">
+		<!-- Módulo Main -->
+		<div class="modulo-main">
+			<!-- Módulo - Avatar -->
+			<figure class="modulo-main-avatar">
+				<!-- Módulo - Avatar - Imagen -->
+				<img 
+				src="{% block src_modulo_avatar_input %} 
+					 	{% static "imagenes/ico/System_1.ico"%} 
+					 {% endblock src_modulo_avatar_input %}"
+				alt="{% block alt_modulo_avatar_input %} 
+					 	{% static "imagenes/ico/System_1.ico"%} 
+					 {% endblock alt_modulo_avatar_input %}"
+				class="modulo-main-avatar-imagen">
+				<!-- Módulo - Avatar - Nombre -->
+				<figcaption class="modulo-main-avatar-nombre {% block nombre_modulo_styles_class %} border-bottom-gray-1 {% endblock nombre_modulo_styles_class %}">
+					{% block nombre_modulo %} Nombre Módulo {% endblock nombre_modulo %}
+				</figcaption>	
+			</figure>
+			<!-- Boton Ingresar -->
+			<div class="modulo-main-boton">
+				<div class="{% block background_boton_ingresar %} background-black-transparent {% endblock background_boton_ingresar %}">
+					<a href="{% block url_modulo_menu %} {% endblock url_modulo_menu%}" class="link border-white-1"> Ingresar </a>
+				</div>
+			</div>
+			<!-- Nota Privilegios -->
+			<div class="auth">
+				<p class="color-red text-center">
+					Solo los usuarios con privilegios autorizados tienen acceso a este módulo del sistema.
+				</p>
+			</div>
+		</div>
+		
+		<!-- Módulo - Detalles -->
+		<div class="modulo-detail">
+			<!--  Módulo - Descripción -->
+			<div class="modulo-detail-descripcion {% block descripcion_border_bottom %} border-bottom-gray-2 {% endblock descripcion_border_bottom %}">
+				<p class="color-white text-shadow-black font-weight-bolder ">
+					Descripción
+				</p>
+				<div class="modulo-detail-descripcion-contenido box-shadow-black-transparent ">
+					<p>
+						{% block modulo_descripcion %}
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim non rerum voluptates voluptatem aspernatur cumque quaerat sed impedit dolore natus quis officia harum, eum repellendus neque fuga reprehenderit magni, id.
+						{% endblock modulo_descripcion %}
+					</p>
+				</div>
+			</div>
+			<!--  Módulo - Observación -->
+			<div class="modulo-detail-observacion {% block observacion_border_bottom %} border-bottom-gray-2 {% endblock observacion_border_bottom %}">
+				<p class="color-white text-shadow-black font-weight-bolder ">
+					Observación
+				</p>
+				<div class="modulo-detail-observacion-contenido box-shadow-black-transparent ">
+					<p>
+						{% block modulo_observacion %}
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim non rerum voluptates voluptatem aspernatur cumque quaerat sed impedit dolore natus quis officia harum, eum repellendus neque fuga reprehenderit magni, id.
+						{% endblock modulo_observacion %}
+					</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+{% endblock section %}

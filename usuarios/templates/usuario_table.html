@@ -1,0 +1,29 @@
+
+{% for object in object_list%}
+<tr  class="table-body-row" id="table_body_row">
+	<td class="table-body-row-data"><input type="checkbox" id="ck_{{object.id}}"></td>
+    <td class="table-body-row-data"><a href="{% url "usuario:update" object.slug %}" class="link color-celeste">{{object.username}}</a></td>
+    <td class="table-body-row-data">{{ object.email }}</td>
+    <td class="table-body-row-data">{{ object.numero_tarjeta_magnetica }}</td>
+    <td class="table-body-row-data">{{ object.numero_acceso_biometrico }}</td>
+    <td class="table-body-row-data">{{ object.is_active }}</td>
+	<td class="table-body-row-data">{{ object.is_staff }}</td>
+	<td class="table-body-row-data">{{ object.is_superuser }}</td>
+	<td class="table-body-row-data">
+		{% if object.last_login %}
+			{{object.last_login|date:"d/m/Y h:m:s"}}
+		{% else %}
+			-------
+		{% endif %}
+	</td>
+
+	<td class="table-body-row-data">
+		{% if object.fecha_registro %}
+			{{object.fecha_registro|date:"d/m/Y h:m:s"}}
+		{% else %}
+			-------
+		{% endif %}
+	</td>
+
+</tr>
+{%endfor%}

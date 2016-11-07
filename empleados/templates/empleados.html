@@ -1,0 +1,60 @@
+{% extends 'base_main_modulo_menu_control.html' %}
+{% load static from staticfiles %}
+{% block title %}
+	Control de Asistencia | Empleados
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+
+{% block panel_nombre_menu %} Empleado {% endblock panel_nombre_menu%}
+
+{% block background_agregar_movil %} background-red {% endblock background_agregar_movil %}
+{% block background_agregar_desktop %} background-red {% endblock background_agregar_desktop %}
+
+{% block action_form_search_ %} {% url "empleado:control" %} {% endblock action_form_search_ %}
+
+{% block url_agregar_registro_movil %} {% url "empleado:create" %} {% endblock url_agregar_registro_movil %}
+{% block url_agregar_registro_desktop %} {% url "empleado:create" %} {% endblock url_agregar_registro_desktop %}
+
+{% block background_table_head %} background-red {% endblock background_table_head %}
+{% block background_paginas %} background-red {% endblock background_paginas %}
+
+{% block table_column %}
+	<th class="table-head-row-column"><a href="" class="link"><input type="checkbox"> </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Nombre Completo </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Nombre Usuario </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Correo Electrónico - Institucional </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Doc. Identificación </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Número Doc. Identificación </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Área </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Tipo de Empleado </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Cargo </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Fecha Registro </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Activo </a></th>
+
+{% endblock table_column %}
+
+{% block table_row %}
+	{% if object_list.count > 0 %}
+		{% include "empleado_table.html" %}
+	{% else %}
+		{% include "empleado_table.html" %}
+	{% endif %}
+{% endblock table_row %}
+
+{% block background_eliminar_movil %} background-red {% endblock background_eliminar_movil %}
+{% block background_eliminar_desktop %} background-red {% endblock background_eliminar_desktop %}
+
+{% block background_search_pagina_submit %} background-red {% endblock background_search_pagina_submit %}
+
+{% block script_template %}
+	<script id ="input_search_registro_template" type="text/template">
+		<input name="search_registro" type="search" id="input_search_registro" class="input-field-default">
+	</script>
+{% endblock script_template %}

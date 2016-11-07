@@ -1,0 +1,191 @@
+{% extends 'base_main_modulo_nav.html'%}
+{% load static from staticfiles %}
+
+{% block section %}
+	<!-- Panel de Control -->
+	<article class="control">
+		<!-- Control - Head -->
+		<div class="control-head">
+			<!-- Titulo -->
+			<div class="control-head-titulo ">
+				<h3 class="subtitulo upper-case color-white text-shadow-black text-center">
+					Panel de {% block panel_nombre_menu %} Menu {% endblock panel_nombre_menu%}
+				</h3>
+			</div>
+
+		</div>
+		<!-- Control - Body -->
+		<div class="control-body">
+			<!-- Acciones -->
+			<div class="actions">
+				<!-- Search -->
+				<div class="search" id="container_form_search_registro">
+					<form action="{% block action_form_search_ %} {% endblock action_form_search_ %}" method="GET" class="form-search" id="form_search_input">
+
+						<!-- Icono -->
+						<div class="icono">
+							<!-- Label - Search -->
+							<label for="input_search_registro" class="icono-label font-size-text-1-5  icon-search">
+
+							</label>
+						</div>
+						<!-- Input - Search -->
+						<div class="container" id="container_search_registro">
+							<!-- Template - Input -->
+
+						</div>
+					</form>
+				</div>
+				<!-- Agregar Registro Nuevo -->
+				<div class="add">
+			   		<!-- Botón Agregar - Movil -->
+   						<div class="container-boton-small
+   						{% block background_agregar_movil %} background-gray {% endblock background_agregar_movil %}
+   						radius-circular box-shadow-black border-white-2" id="boton_agregar_movil">
+   					    	<a href="{% block url_agregar_registro_movil %} {% endblock url_agregar_registro_movil %}" class="boton-small ">
+   					    		+
+   					    	</a>
+   				   		</div>
+   				   		<!-- Botón Agregar - Desktop -->
+   				   		<div class="container-boton
+   				   		{% block background_agregar_desktop %} background-gray {% endblock background_agregar_desktop %}
+   				   		box-shadow-black-transparent font-weight-bolder " id="boton_agregar_desktop">
+   					    	<a href="{% block url_agregar_registro_desktop %} {% endblock url_agregar_registro_desktop %}" class="container-boton-link">
+   					    		Nuevo Registro.
+   					    	</a>
+   				   		</div>
+				</div>
+			</div>
+			<!-- Table - Container -->
+			<div class="container-table background-white" id="table_usuario">
+				<!-- Table -->
+				<table class="table" class="table">
+					<!-- Table - Head -->
+					<thead class="table-head {% block background_table_head %} background-gray {% endblock background_table_head %}">
+						<tr class="table-head-row upper-case">
+							{% block table_column %}
+							<th class="table-head-row-column"><a href="" class="link"> Columna </a></th>
+							{% endblock table_column %}
+						</tr>
+					</thead>
+					<!-- Table - Body -->
+					<tbody class="table-body" id="container_table_body">
+						{% block table_row %}
+							{% if object_list.count > 0 %}
+								{% include "usuario_table.html" %}
+							{% else %}
+								{% include "usuario_table.html" %}
+							{% endif %}
+						{% endblock table_row %}
+					</tbody>
+				</table>
+			</div>
+			<!-- Paginación -->
+			<div class="paginacion">
+				<!-- Paginas -->
+			    <div class="paginas border-white-1 {% block background_paginas %} background-gray {% endblock background_paginas %} ">
+	    		    <!-- Botón Atras - Prev -->
+	    	    	{% if page_obj.has_previous %}
+	    	    		<!-- Pagina - Prev - No Select -->
+	    		        <div class="paginas-prev">
+	    		       		<a href="?{{ page_obj.previous_page_number.querystring }}" class="paginas-prev-noselect icon-chevron-left {% block boton_pagina_prev_color %} {% endblock boton_pagina_prev_color %}"> </a>
+	    		        </div>
+	    	    	{% else %}
+	    	    	   <!-- Pagina - Prev - Select -->
+	    		        <div class="paginas-prev">
+	    		       		<span class="paginas-prev-select icon-chevron-left"> </span>
+	    		        </div>
+	    	    	{% endif %}
+
+	    		    <!-- Rango de Páginas -->
+	    			<div class="paginas-rango">
+	    			    {% for page in page_obj.pages %}
+	    			        {% if page %}
+	    			            {% ifequal page page_obj.number %}
+	    			           		<!-- Pagina No Select -->
+	    			                <div class="pagina">
+	    			               		<span class="pagina-select {% block fondo_border %} background-white {% endblock fondo_border %}">{{ page }}</span>
+	    			               	</div>
+	    			            {% else %}
+	    			            	<!-- Pagina Select -->
+	    			                <div class="pagina">
+	    			                	<a href="?{{ page.querystring }}" class="pagina-noselect">{{ page }}</a>
+	    			                </div>
+	    			            {% endifequal %}
+	    			        {% else %}
+	    			        	  <!-- Pagina - Varios -->
+	    			            <div class="pagina">
+	    			            	<span class="pagina-varios">
+	    			            		...
+	    			            	</span>
+	    			            </div>
+	    			        {% endif %}
+	    			    {% endfor %}
+	    		    </div>
+	    		    <!-- Botón Adelante - Next -->
+	    		    {% if page_obj.has_next %}
+	    		  	    <!-- Pagina - Next - No Select -->
+	    		        <div class="paginas-next">
+	    		        	<a href="?{{ page_obj.next_page_number.querystring }}"
+	    		        	class="paginas-next-noselect icon-chevron-right
+	    		        	{% block boton_pagina_next_color %} {% endblock boton_pagina_next_color%} "> </a>
+	    		        </div>
+	    		    {% else %}
+	    		    	<!-- Pagina - Next - Select -->
+	    		        <div class="paginas-next">
+	    		        	<span class="paginas-next-select icon-chevron-right"> </span>
+	    		        </div>
+	    		    {% endif %}
+			    </div>
+			</div>
+			<!-- Detalles -->
+			<div class="detalles">
+				<!-- Total de Registro -->
+				<div class="total font-weight-bolder color-red">
+					<p class="total-items">
+						<!-- Valor Total -->
+						Total: <span class="total-valor color-black">
+								{% if total_registro == 0 %}
+									0
+								{% else %}
+									{{total_registro}}
+								{% endif %}
+							   </span>
+					</p>
+					<!-- Botón Eliminar - Movil -->
+					<div class="container-boton-small
+					 {% block background_eliminar_movil %} background-gray {% endblock background_eliminar_movil %}
+					 radius-circular box-shadow-black border-white-2" id="boton_eliminar_movil">
+				    	<a href="" class="boton-small ">
+				    		X
+				    	</a>
+			   	</div>
+			   		<!-- Botón Eliminar - Desktop -->
+			   	<div class="container-boton
+			   			{% block background_eliminar_desktop %} background-gray {% endblock background_eliminar_desktop %}
+			   			box-shadow-black-transparent" id="boton_eliminar_desktop">
+				    	<a href="" class="container-boton-link">
+				    		Eliminar Registro(s)
+				    	</a>
+			   	</div>
+				</div>
+				<!-- Buscar - Página -->
+				<div class="search-pagina padding-normal-up-down ">
+					<!-- Form - Search -->
+					<form action="" method="get" class="form-pagina">
+						<!-- Label - Search -->
+						<label for="search_numero_pagina" class="font-weight-bolder">N° Página</label>
+						<!-- Input - Search -->
+						<input type="number" name="page" min="1" class="number input-field-default" id="search_numero_pagina">
+						<!-- Submit - Go -->
+						<div class="container-submit-small
+						{% block background_search_pagina_submit %} background-gray {% endblock background_search_pagina_submit %}
+						border-white-2 box-shadow-black-transparent">
+							<input type="submit" class="submit" value="ir">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</article>
+{% endblock section %}

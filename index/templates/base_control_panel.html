@@ -1,0 +1,70 @@
+{% extends 'base_main_modulo_nav.html '%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block section %}
+<!-- Empleado Nuevo -->
+<article class="container">
+	<!-- Container Form -->
+	<div class="flex-full-center">
+			<!-- Formulario -->
+			<form action="" method="post" class="form-panel position-relative " enctype="multipart/form-data" id="form">
+				{% csrf_token %}
+				<div class="container-panel">
+					<!-- Panel Head -->
+					<div class="panel-head" id="panel_head">
+						<!-- Titulo -->
+						<div class="border-bottom-red-2">
+							<h3 class="rotulo upper-case text-center padding-normal-up-down text-shadow-black color-white">
+								Datos Generales
+							</h3>
+						</div>
+						<!-- Menu -->
+						<ul class="panel-menu background-red" id="panel_menu">
+							{% block panel_menu_item %}
+							<li class="background-white">
+								<a href="" class="link color-black">
+									Menu
+								</a>
+							</li>
+							{% endblock panel_menu_item %}
+						</ul>
+					</div>
+					<!-- Panel Body -->
+					<div class="panel-body">
+						<div class="panel-left">
+							{% block panel_left%}
+
+							{% endblock panel_left%}
+						</div>
+						<!-- Panel - Right -->
+						<div class="panel-right">
+							<!-- Datos Personales -->
+							<div class="paneles">
+
+								{% block panel_right_componentes %}
+
+								{% endblock panel_right_componentes %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-submit {% block background_panel_submit %} background-gris {% endblock background_panel_submit %}">
+					<input type="submit" class="submit" value="Guardar.">
+				</div>
+				<!-- Mensaje Errores -->
+				<div class="mensajeError">
+					<p class="textError color-azul font-size-text">
+						{% if form.non_field_errors %}
+							  {% for err in form.non_field_errors %}
+							 	 {{ err }}
+							  {% endfor %}
+						{% endif %}
+					</p>
+				</div>
+			</form>
+		</div>
+	</article>
+
+{% endblock section%}

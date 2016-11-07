@@ -1,0 +1,49 @@
+{
+  "name": "app_erp",
+  "version": "1.0.0",
+  "description": "System | ERP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "app",
+    "erp",
+    "system",
+    "sistema",
+    "web"
+  ],
+  "author": "Carbonell Saravia Roberto Gian Franco",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "backbone.csrf": "^1.0.2",
+    "browserify": "^13.1.0",
+    "browserify-shim": "^3.8.12",
+    "gulp": "^3.9.1",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-uglify": "^2.0.0",
+    "materialize-css": "^0.97.7",
+    "nib": "^1.1.2",
+    "uglify": "^0.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "backbone-relational": "^0.10.0",
+    "backbone-validation": "^0.11.5",
+    "backbone.paginator": "^2.0.5",
+    "backgrid": "^0.3.7",
+    "install": "^0.8.1",
+    "jquery": "^3.1.0",
+    "npm": "^3.10.6",
+    "underscore": "^1.8.3"
+  }
+}

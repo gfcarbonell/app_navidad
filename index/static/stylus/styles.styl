@@ -1,0 +1,723 @@
+@import 'normalize.styl'
+@import 'componentes.styl'
+@import 'decoracion.styl'
+@import 'fonts.styl'
+
+amarillo_claro = #ffe788
+azul = #225aa4
+celeste_claro = #1573A3
+celeste_oscuro = #2288bb
+azul_acero = #1e6381
+azul_oscuro = #273b47
+gris = #FAFAFA
+gris_light = #888
+gris_claro = #eff2e7
+gris_oscuro = #333636
+gris = #4b4f56
+
+li
+	list-style none
+
+a
+article
+aside
+body
+div
+figcaption
+figure
+h1
+h2
+h3
+h4
+h5
+header
+input
+li
+p
+section
+select
+option
+span
+table
+tbody
+thead
+td
+th
+textarea
+th
+thead
+tr
+ul
+ol
+video
+iframe
+form
+img
+	box-sizing border-box
+	margin 0
+	padding 0
+a
+	text-decoration none
+	color white
+
+body
+	background gris_claro
+	font-family "SANS-SERIF" "Comic Sans MS"
+	font-size 16px
+img
+	vertical-align top
+.aviso
+	background white
+	text-align justify
+	display block
+	width 100%
+	padding .5em
+	overflow-wrap break-word
+	border-radius .5em
+	box-shadow 0 0 10px black
+	max-width 700px
+	margin 0 auto
+.nota
+	padding .5em
+	border-radius .5em
+	max-width 600px
+.total
+	display flex
+	justify-content space-between
+	align-items center
+.login
+	padding .5em
+.logo_avatar
+	position absolute
+	top 0
+	width 100%
+	top -40px
+	>figure
+		display block
+		margin 0 auto
+		width 80px
+		height 80px
+		>img
+			width 80px
+			height 80px
+.header-modulo
+	align-items center
+	display flex
+	height 80px
+	justify-content center
+	padding .5em
+	width 100%
+	&-system
+		display block
+		margin 0 auto
+		>img
+			height 60px
+			width 60px
+	&-entidad
+		width 70%
+.nav-modulo
+	&-head
+		padding 0 .5em
+		height 60px
+		display flex
+		justify-content space-between
+		align-items center
+		.usuario
+			width 100%
+			display flex
+			justify-content space-between
+			align-items center
+			position relative
+			&-boton
+				>a
+					text-align center
+					line-height 35px
+					display block
+					height 35px
+					width 35px
+
+			&-datos
+				display flex
+				justify-content space-between
+				align-items center
+				&-avatar
+					display block
+					margin 0 .5em
+					height 45px
+					width 45px
+				&-boton
+					>a
+						text-align center
+						line-height 35px
+						display block
+						height 35px
+						width 35px
+			&-configuracion
+				display none
+				padding .5em
+				position absolute
+				bottom -85px
+				right 0
+				z-index 20
+				border-radius .5em
+				>li
+					display block
+					width 150px
+					text-align center
+					margin .5em 0
+.aside-modulo
+	position absolute
+	width 100%
+	min-height 100vh
+	z-index 20
+	top 0
+	overflow hidden
+	background gris_claro
+	display none
+	&-head
+		box-shadow 0 0 10px black
+		padding .5em
+		display flex
+		justify-content space-between
+		align-items center
+		>p
+			display block
+			width 100%
+	&-items
+		display flex
+		justify-content center
+		align-items center
+		flex-direction column
+		overflow-y auto
+		&-item
+			padding .5em
+			&-container
+				display flex
+				justify-content center
+				align-items center
+				flex-direction column
+				>a
+					padding 0 0 .5em 0
+					display block
+					>img
+						width 100px
+						height 100px
+				>figcaption
+					width 230px
+					transition .3s
+					&:hover
+						box-shadow 0 0 10px rgba(white, .5)
+					>a
+						line-height 35px
+						text-align center
+						display block
+						height 35px
+						width 100%
+						transition .3s
+						&:hover
+							background rgba(white, .2)
+
+.section-modulo
+	.menu
+		&-item
+			padding .5em
+			display flex
+			justify-content center
+			align-items center
+			flex-direction column
+			&-container
+				display flex
+				justify-content space-between
+				align-items center
+				width 100%
+
+				&-imagen
+					width 45px
+					height 45px
+				&-nombre
+					width 80%
+					transition .3s
+					overflow hidden
+					transition .3s
+					&:hover
+						box-shadow 0 0 10px rgba(white, .5)
+					>a
+						line-height 35px
+						text-align center
+						display block
+						height 35px
+						width 100%
+						transition .3s
+						&:hover
+							background rgba(white, .2)
+
+.footer-modulo
+	align-items center
+	display flex
+	height 80px
+	justify-content center
+	padding .5em
+	width 100%
+	#creador
+		display none
+	&-logotipo
+		display block
+		margin 0 auto
+		>img
+			width 60px
+			height 60px
+		&-siglas
+			display none
+	&-web
+		display flex
+		width 80%
+		justify-content center
+		align-items center
+
+#boton_agregar_movil
+#boton_eliminar_movil
+	display block
+#boton_agregar_desktop
+#boton_eliminar_desktop
+	display none
+.control
+	&-body
+		display flex
+		justify-content center
+		align-items center
+		padding 0 .5em
+		flex-direction column
+		.detalles
+			width 100%
+		.actions
+			margin 0 0 .5em 0
+			width 100%
+			display flex
+			justify-content space-between
+			align-items center
+			.search
+				width 86%
+			.add
+				display flex
+				align-items center
+				flex-direction row-reverse
+				width 14%
+				margin 0 0 0 .5em
+		.paginacion
+			margin .5em 0
+			width 100%
+			display flex
+			justify-content center
+			align-items center
+			.paginas
+				display flex
+				justify-content space-between
+				align-items center
+				box-shadow 0 0 7px black
+				&-prev
+				&-next
+					height 32px
+					width 32px
+					&-select
+					&-noselect
+						display block
+						width 100%
+						height 100%
+						line-height 32px
+						text-align center
+						font-weight bolder
+					&-noselect
+						text-shadow 1px 1px 7px black
+						transition .3s
+						&:hover
+							background rgba(white, .2)
+				&-rango
+					display flex
+					justify-content space-between
+					align-items center
+					.pagina
+						height 32px
+						width 32px
+						&-varios
+						&-select
+						&-noselect
+							display block
+							width 100%
+							height 100%
+							line-height 32px
+							text-align center
+							font-weight bolder
+						&-noselect
+							text-shadow 1px 1px 7px black
+							transition .3s
+							&:hover
+								background rgba(white, .2)
+	&-head
+		width 100%
+		&-titulo
+			padding .5em 0
+		&-container
+			padding .5em
+			&-actions
+				&-export
+					display flex
+					justify-content space-between
+					align-items center
+					width 60%
+					margin .5em  auto
+					>a
+						border-radius 50%
+						box-shadow 0 0 5px black
+						display block
+						height 35px
+						width 35px
+
+				&-boton
+					width 70%
+					margin 0 auto
+
+					>a
+						text-shadow 1px 1px 7px black
+						box-shadow 0 0 5px black
+						text-align center
+						line-height 35px
+						height 35px
+						display block
+						transition .3s
+						font-weight bolder
+						border 1px solid white
+						&:hover
+							background rgba(white, .2)
+.detalle
+	display flex
+	justify-content center
+	flex-direction column
+	&-item
+		padding .5em 0
+		&-label
+			word-break break-word
+			padding 0 0 .5em 0
+		&-value
+			color #888
+			word-break break-word
+		&-area
+			padding .5em
+			color #888
+			box-shadow 0 0 5px black
+			height 100px
+			background white
+			overflow-y auto
+	&-left
+		width 100%
+		max-width 380px
+		margin 0 auto
+	&-right
+		padding .5em
+		width 100%
+		max-width 380px
+		margin 0 auto
+.group-detalle
+	width 100%
+	display flex
+	justify-content space-between
+	flex-direction column
+	flex-wrap wrap
+.modulo
+	padding .5em
+	&-main
+
+		&-avatar
+			display flex
+			justify-content center
+			align-items center
+			flex-direction column
+			&-imagen
+				height 150px
+				width 200px
+			&-nombre
+				padding .5em 0
+				width 80%
+				text-align center
+				font-weight bolder
+				color white
+				text-shadow 1px 1px 7px black
+		&-boton
+			margin .5em auto
+			display flex
+			justify-content center
+			align-items center
+			div
+				width 200px
+				>a
+					font-weight bolder
+					line-height 35px
+					text-align center
+					text-shadow 0 0 7px black
+					box-shadow 0 0 7px black
+					height 35px
+					width 100%
+					display block
+					transition .3s
+					&:hover
+						background rgba(white, .2)
+	&-detail
+		&-descripcion
+		&-observacion
+			margin .5em 0
+			&-contenido
+				height 100px
+				margin .5em 0 0 0
+				background white
+				overflow-y auto
+				&::-webkit-scrollbar
+					display none
+				>p
+					display block
+					height 100%
+					width 100%
+					padding .5em
+					text-align justify
+@media screen and (min-width:480px)
+	#boton_agregar_movil
+	#boton_eliminar_movil
+		display none
+	#boton_agregar_desktop
+	#boton_eliminar_desktop
+		display block
+
+	.control
+		&-body
+			.actions
+				.search
+					width 450px
+				.add
+					width 250px
+			.detalles
+				.search-pagina
+					width 300px
+			.paginacion
+				.paginas
+
+					&-prev
+					&-next
+						width 40px
+						height 40px
+						&-select
+						&-noselect
+							line-height 40px
+					&-rango
+
+						.pagina
+							width 40px
+							height 40px
+							&-select
+							&-noselect
+							&-varios
+								line-height 40px
+
+
+		&-head
+			&-container
+				display flex
+				justify-content center
+				align-items center
+				&-actions
+
+					display flex
+					justify-content space-between
+					align-items center
+					&-boton
+						width 150px
+					&-export
+						margin 0 .5em 0 0
+						width 130px
+
+	.aside-modulo
+		display block
+		box-shadow 0 0 10px black
+		border-right 1px solid celeste_oscuro
+		border-top 1px solid celeste_oscuro
+		border-bottom 1px solid celeste_oscuro
+		border-radius 0 .5em .5em 0
+		background transparent
+		position absolute
+		width 140px
+		min-height initial
+		z-index 20
+		top 35%
+		overflow-y auto
+		padding .5em
+		left -100px
+		transition .3s
+		height 320px
+		&::-webkit-scrollbar
+			display none
+		&:hover
+			left 0
+		&-head
+			display none
+		&-items
+			&-item
+
+				&-container
+					display flex
+					justify-content center
+					align-items center
+					flex-direction row
+
+					>a
+						transition .3s
+						border 1px solid transparent
+						&:hover
+							border-radius .5em
+							border 1px solid black
+							box-shadow 0 0 10px rgba(white, .5)
+							background rgba(black, .2)
+						>img
+							width 100px
+							height 90px
+					>figcaption
+
+						display none
+	.modulo
+		display flex
+		justify-content space-between
+		align-items center
+		&-main
+			margin 0 auto
+			.auth
+				margin 0 auto
+				height 70px
+				width 230px
+				display flex
+				justify-content center
+				>p
+					display block
+					width 100%
+			&-avatar
+				&-imagen
+					width 240px
+					height 180px
+				&-nombre
+					width 100%
+			&-boton
+				margin 1em auto
+		&-detail
+			margin 0 auto 0 0
+			padding 0 .5em
+			width 50%
+			&-descripcion
+			&-observacion
+				margin .5em 0
+				&-contenido
+					height 145px
+	.header-modulo
+		&-system
+			display flex
+			justify-content center
+			align-items center
+			>img
+				width 80px
+				height 80px
+		&-entidad
+			width 70%
+	.section-modulo
+		.menu
+			display flex
+			flex-wrap wrap
+			justify-content center
+			align-items center
+			&-item
+				width 320px
+				&-container
+					flex-direction column
+					&-imagen
+						width 100px
+						height 100px
+					&-nombre
+						margin .5em 0 0 0
+	.footer-modulo
+		#creador
+			display flex
+			justify-content space-between
+			align-items center
+		&-web
+			border-left 2px solid white
+			border-right 2px solid white
+			width 70%
+		&-logotipo
+			padding 0 .5em
+			display flex
+			justify-content space-between
+			align-items center
+			&-siglas
+				margin 0 .5em
+				display block
+
+@media screen and (min-width:700px)
+	.detalle
+		flex-direction row
+		justify-content space-between
+		&-item
+			padding .5em 0
+			width 370px
+			max-width 370px
+		&-left
+			max-width 380px
+		&-right
+			width 100%
+			height 600px
+			max-width initial
+			overflow-y auto
+	.group-detalle
+		flex-direction row
+@media screen and (min-width:1000px)
+	.control
+		&-body
+			.actions
+				.search
+					width 600px
+	.aside-modulo
+		left 0
+		&-items
+			&-item
+				&-container
+					>a
+						>img
+							width 100px
+							height 90px
+	.modulo
+		&-main
+			&-avatar
+				&-imagen
+					width 280px
+					height 210px
+
+		&-detail
+			width 800px
+			&-descripcion
+			&-observacion
+				margin .5em 0
+				&-contenido
+					height 160px
+	.header-modulo
+		&-system
+			width 15%
+	.section-modulo
+		.menu
+			&-item
+				width 350px
+				&-container
+					flex-direction column
+					&-imagen
+						width 180px
+						height 150px
+						transition .7s
+						&:hover
+							transform  rotateX(0) rotateY(360deg) rotateZ(0)
+
+	.footer-modulo
+		&-logotipo
+			width 15%
+			&-siglas
+				margin 0 auto

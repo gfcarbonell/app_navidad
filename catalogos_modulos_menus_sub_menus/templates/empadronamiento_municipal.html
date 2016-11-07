@@ -1,0 +1,53 @@
+{% extends 'base_main_modulo_menu_descripcion.html'%}
+{% load static from staticfiles %}
+
+{% block title %}
+	Empadronamiento Municipal
+{% endblock title %}
+
+{% block nav-border %}
+	border-bottom-azul-1
+{% endblock nav-border %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Empadronamiento_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Empadronamiento Municipal {% endblock alt_avatar_modulo %}">
+
+
+{% block src_modulo_avatar_input %}
+	{{catalogos_modulos_menus.imagen.url}}
+{% endblock src_modulo_avatar_input %}"
+
+{% block alt_modulo_avatar_input %}
+	{{catalogos_modulos_menus.modulo}}
+{% endblock alt_modulo_avatar_input %}"
+
+
+{% block nombre_modulo %} {{catalogos_modulos_menus.modulo}} {% endblock nombre_modulo %}
+{% block nombre_modulo_styles_class %} border-bottom-azul-2 {% endblock nombre_modulo_styles_class %}
+
+
+
+{% block background_boton_ingresar %}
+	background-azul
+{% endblock background_boton_ingresar %}
+
+{% block url_modulo_menu %}
+	{% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %}
+{% endblock url_modulo_menu%}
+
+
+{% block descripcion_border_bottom %}
+	border-bottom-azul-2
+{% endblock descripcion_border_bottom %}
+
+{% block observacion_border_bottom %}
+	border-bottom-azul-2
+{% endblock observacion_border_bottom %}
+
+{% block modulo_descripcion %}
+	{{catalogos_modulos_menus.descripcion}}
+{% endblock modulo_descripcion %}
+
+{% block modulo_observacion %}
+	{{catalogos_modulos_menus.observacion}}
+{% endblock modulo_observacion %}

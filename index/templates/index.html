@@ -1,0 +1,26 @@
+{% extends 'base_main.html '%}
+
+{% block title %} 
+	{{entidad.nombre}}
+{% endblock title %}
+{% block header %}
+	<div class="main">
+		<!-- Slider -->
+		<div class="slider">
+			<!-- Video -->
+			<div class="slider-video">
+				<video loop muted autoplay>
+				    <source src="{{seccion_web_inicio.player_video}}" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+	</div>
+{% endblock header%}
+
+
+{% block script_template %}
+	<script id ="slider_template" type="text/template">
+		
+	</script>
+{% endblock script_template %}

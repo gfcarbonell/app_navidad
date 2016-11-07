@@ -1,0 +1,35 @@
+{% extends 'base_main_modulo_menu_control.html' %}
+{% load static from staticfiles %}
+{% block title %} 
+	Control de Asistencia | Usuario
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}" 
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %} 
+	border-bottom-red-1 
+{% endblock nav-border %}
+
+
+{% block panel_nombre_menu %} Usuario {% endblock panel_nombre_menu%}
+
+{% block background_agregar_movil %} background-red {% endblock background_agregar_movil %}
+{% block background_agregar_desktop %} background-red {% endblock background_agregar_desktop %} 
+
+{% block url_agregar_registro_movil %} {% url "usuario:create" %} {% endblock url_agregar_registro_movil %}
+{% block url_agregar_registro_desktop %} {% url "usuario:create" %} {% endblock url_agregar_registro_desktop %}
+
+{% block background_table_head %} background-red {% endblock background_table_head %}
+{% block background_paginas %} background-red {% endblock background_paginas %}
+
+{% block background_eliminar_movil %} background-red {% endblock background_eliminar_movil %}
+{% block background_eliminar_desktop %} background-red {% endblock background_eliminar_desktop %}
+
+{% block background_search_pagina_submit %} background-red {% endblock background_search_pagina_submit %}
+
+{% block script_template %}
+	<script id ="input_search_registro_template" type="text/template">
+		<input type="search" id="input_search_registro" class="input-field-default">
+	</script>
+{% endblock script_template %}

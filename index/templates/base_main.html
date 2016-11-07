@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html lang="es">
+	<!-- Juegos de Carácteres -->
+		<meta charset="utf-8"/>
+		<!-- Autor -->
+		<meta name="author" content="Carbonell Saravia, Roberto Gian Franco"/>
+		<!-- Descripción de la Página Web -->
+		<meta name="description" content=" App - ERP"/>
+		<!-- Mobile -> verificar si deseas zoom en user-->
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+		<!-- Compatibilidad Internet Explorer -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+		<meta name='csrf-token' content={{ csrf_token }}>
+		<!-- Titulo -->
+		<title>.::{% block title %} {% endblock title %}::.</title>
+
+		<!-- Icono del navegador -->
+		<link rel= "shortcut icon" href="{% static "imagenes/png/Escudo_San_Andres.png" %}" type="image/x-icon"/>
+		<!-- Estilos y Diseños -->
+		<link rel="stylesheet" href="{% static "stylesheet/styles.css" %}"/>
+
+
+	<body>
+		<header class=" {% block position_absolute_header %} {% endblock position_absolute_header %} ">
+			{% block header %}
+			{% endblock header %}
+		</header>
+		<nav>
+			{% block nav %}
+			{% endblock nav %}
+		</nav>
+		<aside>
+			{% block aside %}
+			{% endblock aside %}
+		</aside>
+		<section>
+			{% block section %}
+			{% endblock section %}
+			{% block content %}
+			{% endblock content %}
+		</section>
+
+		<footer class="{% block position_absolute_footer %} {% endblock position_absolute_footer %}">
+			{% block footer %}
+			{% endblock footer %}
+		</footer>
+
+		{% block script_template %}
+		{% endblock script_template %}
+
+		{% block script_config_template %}
+		{% endblock script_config_template %}
+
+		<script type="text/javascript" src="{% static "javascript/main.js"%} "></script>
+
+	</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'base_main_modulo_nav.html '%}
+
+{% load static from staticfiles %}
+{% block title %}
+	Control de Asistencia | Detalle Usuario
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+{% block section %}
+<!-- Login -->
+<article class="container padding-normal-up-down ">
+	<!-- Container Form -->
+	<div class="flex-full-center">
+		<!-- Formulario -->
+		<form action="" method="post" class="form position-relative " id="form">
+			{% csrf_token %}
+			<div class="form-head padding-normal-up-down border-bottom-red-2">
+				<h3 class="rotulo upper-case color-white text-shadow-black">
+					Usuario - Datos
+				</h3>
+			</div>
+			<!-- Form - Body -->
+			<div class="form-body padding-normal-up-down">
+				<!-- Password -->
+				<div class="componente">
+					<!-- Field -->
+					<div class="field">
+						
+					</div>
+					<!-- Error -->
+					<div class="error">
+
+					</div>
+				</div>
+				<!-- Submit -->
+				<div class="componente">
+					<div class="container-submit background-red ">
+						<input type="submit" class="submit color-white text-shadow-black ">
+					</div>
+				</div>
+			</div>
+			<!-- Form - Footer -->
+			<div class="form-footer">
+				<!-- Mensaje Errores -->
+				<div class="mensajeError">
+					<p class="textError color-azul font-size-text">
+						{% if form.non_field_errors %}
+							  {% for err in form.non_field_errors %}
+							 	 {{ err }}
+							  {% endfor %}
+						{% endif %}
+					</p>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</article>
+{% endblock section %}

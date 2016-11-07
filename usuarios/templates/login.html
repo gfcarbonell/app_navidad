@@ -1,0 +1,124 @@
+{% extends 'base_main_modulo.html'%}
+{% load static from staticfiles %}
+{% block title %}
+	Iniciar Sesión | Log In
+{% endblock title %}
+
+{% block section %}
+<!-- Login -->
+<article class="login">
+	<!-- Saludo -->
+	<div class="container border-bottom-red-1">
+		<p class="titulo padding-full color-white text-shadow-black font-weight-bolder">
+			Bienvenidos
+		</p>
+		<p class="sub-rayado background-red">
+
+		</p>
+	</div>
+	<!-- Container Form -->
+	<div class="flex-full-center padding-full-max-up-down padding-full">
+		<!-- Formulario -->
+		<form action="" method="post" class="form padding-normal-left-right position-relative box-shadow-black border-radius-small border-top-black-1  border-bottom-black-1" id="form_login">
+			{% csrf_token %}
+			<!-- Form - Head -->
+			<div class="form-head">
+				<!-- Avatar -->
+				<div class="logo_avatar">
+					<figure>
+						<img class=" background-verde-pastel box-shadow-black radius-circular border-black-2" src="{% static "imagenes/png/Robot_1.png"%}" alt="">
+					</figure>
+				</div>
+				<div class="container margin-login">
+					<p class="rotulo text-center color-azul font-weight-bolder ">
+						Iniciar Sesión | Log In
+					</p>
+				</div>
+			</div>
+			<!-- Form - Body -->
+			<div class="form-body">
+				<!-- Usuario -->
+				<div class="componente">
+					<!-- Field -->
+					<div class="field">
+						<!-- Label -->
+						<div class="container-label">
+							<label for="{{ form.username.auto_id }}" class="label font-weight-bolder">
+							{{form.username.label}}
+							</label>
+						</div>
+						<!-- Input -->
+						<div class="input">
+							{{form.username}}
+						</div>
+					</div>
+					<!-- Error -->
+					<div class="error">
+						{{form.username.errors}}
+					</div>
+				</div>
+				<!-- Password -->
+				<div class="componente">
+					<!-- Field -->
+					<div class="field">
+						<!-- Label -->
+						<div class="container-label">
+							<label for="{{ form.password.auto_id }}" class="label font-weight-bolder">
+							{{form.password.label}}
+							</label>
+						</div>
+						<!-- Input -->
+						<div class="input">
+							{{form.password}}
+						</div>
+					</div>
+					<!-- Error -->
+					<div class="error">
+						{{form.password.errors}}
+					</div>
+				</div>
+				<!-- Submit -->
+				<div class="componente">
+					<div class="container-submit background-verde-pastel ">
+						<input type="submit" class="submit color-white text-shadow-black ">
+					</div>
+				</div>
+				<!-- Olvidaste tu contraseña -->
+				<div class="field">
+					<div class="input margin-auto-left-right">
+						<a href="{% url "usuario:password_reset" %}" class="link display-block color-red text-center">
+							¿Olvidastes tu contraseña?
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Form - Footer -->
+			<div class="form-footer">
+				<!-- Mensaje Errores -->
+				<div class="mensajeError">
+					<p class="textError color-azul font-size-text">
+						{% if form.non_field_errors %}
+							  {% for err in form.non_field_errors %}
+							 	 {{ err }}
+							  {% endfor %}
+						{% endif %}
+					</p>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="nota margin-auto-left-right">
+    <p class="text-center">
+			Enviar sus consultas a la Sub Gerencia de Tecnología de la Información mediante el correo electrónico:
+			<span class="font-weight-bolder">tecnologia.informacion@munisanandres.gob.pe</span>
+    </p>
+  </div>
+</article>
+{% endblock section %}
+
+{% block script_template %}
+	<script id ="login_template" type="text/template">
+
+	</script>
+{% endblock script_template %}

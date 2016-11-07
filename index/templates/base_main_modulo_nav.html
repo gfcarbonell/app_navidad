@@ -1,0 +1,80 @@
+{% extends 'base_main_modulo.html '%}
+{% load static from staticfiles %}
+{% block nav %}
+	<div class="nav-modulo {% block nav-border %} border-bottom-gray-1 {% endblock nav-border %}">
+		<!-- Módulo Head -->
+		<div class="nav-modulo-head">
+
+			<!-- Usuario -->
+			<div class="usuario">
+				{% if boton_menu == False %}
+					<div>
+
+					</div>
+				{% elif boton_menu == None %}
+					<div class="usuario-boton" id="boton_open_menu_container">
+
+					</div>
+				{% endif%}
+				<!-- Usuario - Container -->
+				<figure class="usuario-datos">
+					<!-- Usuario - Nombre -->
+					<figcaption class="usuario-datos-nombre">
+						<p class="color-white text-shadow-black font-weight-bolder">
+							@{{instance.usuario.username}}
+						</p>
+					</figcaption>
+					<!-- Usuario - Imagen -->
+					<img src="{{instance.fotografia.url}}" alt="{{instance.usuario.username}}" class="usuario-datos-avatar box-shadow-black-transparent radius-circular">
+					<!-- Usuario - Botón -->
+					<div class="usuario-datos-boton " id="boton_usuario_dato_container">
+
+					</div>
+				</figure>
+				<!-- Configuración Usuario -->
+				<ul id="usuario_panel_configuracion"class="usuario-configuracion border-white-2 box-shadow-black background-gray font-weight-bolder">
+					<!-- Configuración Usuario - Perfil Usuario -->
+					{% if instance %}
+						{% if "Empleado" == instance.tipo_perfil %}
+							<li>
+								<a href="{% url "empleado:detail" instance.slug %}" class="link text-shadow-black text-center text-shadow-black">
+									 Perfil de {{instance.tipo_perfil}}
+								</a>
+							</li>
+						{% endif %}
+					{% else %}
+						<li>
+							<a href="#" class="link text-shadow-black text-center text-shadow-black">
+								 Sin Perfil
+							</a>
+						</li>
+					{% endif %}
+					<!-- Configuración Usuario - Salir -->
+					<li>
+						<a href="{% url 'usuario:logout' %}" class="link text-shadow-black text-center text-shadow-black"> Salir </a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock nav %}
+
+{% block script_config_template %}
+	<script id ="boton_usuario_dato_template" type="text/template">
+		<a href="" id="boton_usuario_dato" class="icon-settings2 font-size-text-1-5  text-shadow-black font-weight-bolder">
+
+		</a>
+	</script>
+	<script id ="boton_close_menu_template" type="text/template">
+		<a href="" id="boton_close_menu" class="usuario-boton-link icon-grid font-size-text-1-5  text-shadow-black font-weight-bolder">
+
+		</a>
+	</script>
+	<script id ="boton_open_menu_template" type="text/template">
+		<a href="" id="boton_open_menu" class="usuario-boton-link icon-grid font-size-text-1-5  text-shadow-black font-weight-bolder">
+
+		</a>
+	</script>
+{% endblock script_config_template %}
