@@ -7,10 +7,14 @@
 
 			<!-- Usuario -->
 			<div class="usuario">
-				{% if boton_menu == False %}
+				{% if boton_menu == True %}
 					<div>
-
+						<a href="{% block url_menu_control %} {% endblock url_menu_control %}" class="color-black">Panel Menu</a>
 					</div>
+				{% elif boton_menu == False %}
+				  <div>
+
+				  </div>
 				{% elif boton_menu == None %}
 					<div class="usuario-boton" id="boton_open_menu_container">
 

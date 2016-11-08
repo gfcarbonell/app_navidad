@@ -1,0 +1,57 @@
+{% for object in object_list%}
+<tr class="table-body-row" id="table_body_row">
+  <td class="table-body-row-data"><input type="checkbox" id="ck_{{object.id}}"></td>
+  <td class="table-body-row-data">{{ object.id_empadronado }}</td>
+  <td class="table-body-row-data"><a href="{% url "empadronado:detail" object.slug %}" class="link color-celeste">{{object.get_nombre_completo}}</a></td>
+  <td class="table-body-row-data">{{ object.documento_identificacion }}</td>
+  <td class="table-body-row-data">{{ object.numero_documento_identificacion }}</td>
+  <td class="table-body-row-data">
+    {% if object.fecha_nacimiento %}
+      {{object.fecha_nacimiento|date:"d/m/Y "}}
+    {% else %}
+      -------
+    {% endif %}
+  </td>
+  <td class="table-body-row-data">{{ object.genero }}</td>
+
+  <td class="table-body-row-data">
+    {% if object.telefono %}
+      {{object.telefono}}
+    {% else %}
+      -------
+    {% endif %}
+  </td>
+
+  <td class="table-body-row-data">
+  	{% if object.celular %}
+  		{{object.celular}}
+  	{% else %}
+  		-------
+  	{% endif %}
+  </td>
+
+  <td class="table-body-row-data">
+  	{% if object.email %}
+  		{{object.email}}
+  	{% else %}
+  		-------
+  	{% endif %}
+  </td>
+
+  <td class="table-body-row-data">
+  	{% if object.fecha_registro %}
+  		{{object.fecha_registro|date:"d/m/Y h:m:s"}}
+  	{% else %}
+  		-------
+  	{% endif %}
+  </td>
+
+
+
+  {% if object.activo %}
+    <td class="table-body-row-data color-verde-pastel text-center font-weight-bolder icon-circle-check "></td>
+  {% else %}
+    <td class="table-body-row-data color-red text-center font-weight-bolder icon-circle-cross "></td>
+  {% endif%}
+</tr>
+{%endfor%}

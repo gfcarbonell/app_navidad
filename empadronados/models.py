@@ -17,8 +17,8 @@ from areas.models import Area
 
 class Empadronado(Persona):
 	BOOL_ACTIVO 		 			= ((True, 'Si'), (False, 'No'))
-	descripcion_empedronado		    = models.TextField(verbose_name='Descripción (Empadronado)' ,blank=True, null=True, help_text='(Opcional).')
-	observacion_empedronado			= models.TextField(verbose_name='Observación (Empadronado)' ,blank=True, null=True, help_text='(Opcional).')
+	descripcion_empadronado		    = models.TextField(verbose_name='Descripción (Empadronado)' ,blank=True, null=True, help_text='(Opcional).')
+	observacion_empadronado			= models.TextField(verbose_name='Observación (Empadronado)' ,blank=True, null=True, help_text='(Opcional).')
 	activo 							= models.BooleanField(choices=BOOL_ACTIVO, default=True)
 
 		#Métodos
@@ -29,6 +29,8 @@ class Empadronado(Persona):
 	#Python 2.X
 	#def __unicode__(self):
 	#	return self.nombre
+	def id_empadronado(self):
+		return str(self.id).zfill(10)
 
 	def save(self, *args, **kwargs):
 		if not self.pk:

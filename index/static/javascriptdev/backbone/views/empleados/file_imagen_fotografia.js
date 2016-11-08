@@ -15,7 +15,7 @@ class FileImagen extends Backbone.View
 	events()
 	{
 		return {
-				"change #id_model_form_empleado-fotografia"  			  : "load_imagen",
+				"change #id_fotografia"  			  : "load_imagen",
 		};
 	}
 

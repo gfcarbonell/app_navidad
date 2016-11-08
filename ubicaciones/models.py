@@ -17,7 +17,7 @@ class Ubicacion(models.Model):
     distrito 				= models.ForeignKey(Distrito, related_name='%(app_label)s_%(class)s_related')
     zona					= models.ForeignKey(Zona, blank=True, null=True, default=None, related_name='%(app_label)s_%(class)s_related')
     via						= models.ForeignKey(Via, blank=True, null=True, default=None, related_name='%(app_label)s_%(class)s_related',)
-    nombre_zona_via  = models.CharField(
+    nombre_zona_via         = models.CharField(
     								verbose_name='Nombre (Zona/Vía)',
     								max_length=255,
     								validators=[

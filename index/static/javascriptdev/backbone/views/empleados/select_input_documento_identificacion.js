@@ -19,22 +19,22 @@ class SelectInputDocumentoIdentificacion extends Backbone.View
 	events()
 	{
 		return {
-				"change #id_model_form_empleado-documento_identificacion"  			  : "select_documento_identificacion",
+				"change #id_documento_identificacion"  			  : "select_documento_identificacion",
 			   };
 	}
 
 	select_documento_identificacion(e)
 	{
-		if($("#id_model_form_empleado-documento_identificacion").val() == "")
+		if($("#id_documento_identificacion").val() == "")
 		{
 			this.numero_digito = 0;
 		}
 		else
 		{
-			this.numero_digito = this.documentos_identificaciones.get($("#id_model_form_empleado-documento_identificacion").val()).get("numero_digito");
+			this.numero_digito = this.documentos_identificaciones.get($("#id_documento_identificacion").val()).get("numero_digito");
 		}
 
-		$("#id_model_form_empleado-numero_documento_identificacion").attr({
+		$("#id_numero_documento_identificacion").attr({
 			"maxlength": this.numero_digito,
 			"minlength": this.numero_digito,
 		});

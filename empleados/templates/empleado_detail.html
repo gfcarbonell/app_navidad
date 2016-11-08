@@ -1,1 +1,285 @@
 {% extends 'base_detail.html '%}
+
+{% block detalle_left_container %}
+<figure class="container ">
+  <img class="imagen-perfil border-black-2 margin-auto-left-right background-white"
+       src="{{object.fotografia.url}}"
+       alt="{{object.get_nombre_completo}}"/>
+  <figcaption class="detalle-nombre padding-normal-left-right">
+    <a href="{% url "empleado:update" object.slug %}" class="rotulo link padding-normal-up-down display-block text-center font-weight-bolder text-shadow-black">
+      <p>
+        {{object.nombre}}
+      </p>
+      <p>
+        {{object.apellido_paterno}} {{object.apellido_materno}}
+      </p>
+    </a>
+    <p class="text-center border-top-red-1  padding-normal-up-down color-gris-oscuro font-weight-bolder ">
+        {{object.cargo}} de {{object.area.nombre}}
+    </p>
+  </figcaption>
+
+  <div class="group-detalle">
+    <div class="detalle-item">
+      <p class="detalle-item-label font-weight-bolder">
+        Descripción (Empleado)
+      <p class="detalle-item-area font-weight-bolder">
+        {{object.descripcion_empleado}}
+      </p>
+    </div>
+  </div>
+
+  <div class="group-detalle">
+    <div class="detalle-item">
+      <p class="detalle-item-label font-weight-bolder">
+        Observación (Empleado)
+      <p class="detalle-item-area font-weight-bolder">
+        {{object.observacion_empleado}}
+      </p>
+    </div>
+  </div>
+</figure>
+{% endblock detalle_left_container %}
+{% block detalle_right_container %}
+<div class="group-detalle">
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Documento identificación
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.documento_identificacion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Número documento identificación
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.numero_documento_identificacion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Fecha de nacimiento
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.fecha_nacimiento}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Género
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.genero}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Estado civil
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.estado_civil}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Grupo sanguíneo
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.grupo_sanguineo}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Hijo(s)
+    <p class="detalle-item-value font-weight-bolder">
+      {% if object.hijo == True %}
+        Si
+      {% else %}
+        No
+      {% endif %}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Número hijo(s)
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.numero_hijo}}
+    </p>
+  </div>
+</div>
+<!-- Datos Empleados -->
+<div class="border-bottom-red-1">
+  <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    Datos Empleados
+  </h3>
+</div>
+<div class="group-detalle">
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Área | Dependencia
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.area}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Tipo empleado
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.tipo_empleado}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Grado instrucción
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.grado_instruccion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Profesión
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.profesion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Ocupación
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.ocupacion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Fecha inicio contratación
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.fecha_inicio_contratacion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Fecha fin contratacion
+    <p class="detalle-item-value font-weight-bolder">
+      {% if object.fecha_fin_contratacion %}
+        {{object.fecha_fin_contratacion}}
+      {% else %}
+        -------
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Fecha cese
+    <p class="detalle-item-value font-weight-bolder">
+      {% if object.fecha_cese %}
+       {{object.fecha_cese}}
+      {% else %}
+        -------
+      {% endif %}
+    </p>
+  </div>
+</div>
+<!-- Datos - Usuario -->
+<div class="border-bottom-red-1">
+  <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    Datos Usuarios
+  </h3>
+</div>
+<div class="group-detalle">
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Nombre de usuario
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+      @{{object.usuario.username}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+    Correo electrónico (Institucional)
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+      {{object.usuario.email}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Contraseña
+      {% if object.usuario == instance.usuario %}
+        <a href="{%url "usuario:password_change" object.usuario.slug %}" class="link color-red"> (Cambiar) </a>
+      {% endif %}
+    </p>
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.usuario.password}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Número Tarjeta Mágnetica
+    </p>
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.usuario.numero_tarjeta_magnetica}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Número Acesso Biométrico
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.usuario.numero_acceso_biometrico}}
+    </p>
+  </div>
+</div>
+<!-- Datos - Extras -->
+<div class="border-bottom-red-1">
+  <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    Datos Extras
+  </h3>
+</div>
+<div class="group-detalle">
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Teléfono (Personal)
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {% if object.fecha_cese %}
+          {{object.telefono}}
+        {% else %}
+          -------
+        {% endif %}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Celular (Personal)
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {% if object.fecha_cese %}
+          {{object.celular}}
+        {% else %}
+          -------
+        {% endif %}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Correo Electrónico (Personal)
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {% if object.email %}
+          {{object.email}}
+        {% else %}
+          -------
+        {% endif %}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Observación (Personal)
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {% if object.observacion_persona %}
+          {{object.observacion_persona}}
+        {% else %}
+          -------
+        {% endif %}
+    </p>
+  </div>
+</div>
+{% endblock detalle_right_container %}

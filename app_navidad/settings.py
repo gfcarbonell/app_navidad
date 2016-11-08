@@ -29,7 +29,7 @@ INSTALLED_APPS = [
 
     'pure_pagination',
     'widget_tweaks',
-
+    'rest_framework',
     'usuarios.apps.UsuariosConfig',
     'index.apps.IndexConfig',
     #MAIN
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'areas.apps.AreasConfig',
     'tipos_empleados.apps.TiposEmpleadosConfig',
     'empleados.apps.EmpleadosConfig',
+    'empadronados.apps.EmpadronadosConfig',
     'tipos_areas_funcionales.apps.TiposAreasFuncionalesConfig',
     'tipos_areas.apps.TiposAreasConfig',
     'tipos_sitios_web.apps.TiposSitiosWebConfig',

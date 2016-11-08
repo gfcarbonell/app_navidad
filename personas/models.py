@@ -65,8 +65,8 @@ class Persona(InfoSistema, Ubicacion, UbicacionInterna):
 													   db_index=True)
 	fecha_nacimiento			    = models.DateField()
 	genero 							= models.CharField(verbose_name='Género', choices=CHOICES_GENERO, default=CHOICES_GENERO[0][1], max_length=9)
-	estado_civil 					= models.ForeignKey(EstadoCivil, related_name='%(app_label)s_%(class)s_related')
-	grupo_sanguineo 				= models.ForeignKey(GrupoSanguineo, verbose_name='Grupo sanguíneo', related_name='%(app_label)s_%(class)s_related')
+	estado_civil 					= models.ForeignKey(EstadoCivil, default=1, related_name='%(app_label)s_%(class)s_related')
+	grupo_sanguineo 				= models.ForeignKey(GrupoSanguineo, default=1, verbose_name='Grupo sanguíneo', related_name='%(app_label)s_%(class)s_related')
 	hijo							= models.BooleanField(verbose_name='¿Hijo(s)?',
 														  choices=BOOL_HIJO, default=False)
 	numero_hijo						= models.PositiveSmallIntegerField(
@@ -79,15 +79,15 @@ class Persona(InfoSistema, Ubicacion, UbicacionInterna):
 																			    ],
 																		help_text='Escribir número(s) de hijo(s).')
 
-	telefono 						= models.CharField(verbose_name="Télefono (Personal)",
+	telefono 						= models.CharField(verbose_name="Télefono",
 													    max_length=20,
 													    blank=True, null=True, help_text='(Opcional).')
-	celular 						= models.CharField(verbose_name="Celular (Personal)",
+	celular 						= models.CharField(verbose_name="Celular",
 														max_length=20, blank=True, null=True, help_text='(Opcional).')
 	email 							= models.EmailField(
-														verbose_name="Correo electrónico (Personal)",
+														verbose_name="Correo electrónico",
 														max_length=100,
-														unique=True,
+														blank=True, null=True,
 														db_index=True,
 														validators=[
 																EmailValidator(),

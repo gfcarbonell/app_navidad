@@ -15,9 +15,9 @@ class InputNumeroDocumentoIdentificacion extends Backbone.View
 
 	events()
 	{
-		return { 
-				"keypress #id_model_form_empleado-numero_documento_identificacion" : "input_documento_identificacion",
-				"keyup #id_model_form_empleado-numero_documento_identificacion" : "verificar_numero_documento_identificacion",
+		return {
+				"keypress #id_numero_documento_identificacion" : "input_documento_identificacion",
+				"keyup #id_numero_documento_identificacion" : "verificar_numero_documento_identificacion",
 			   };
 	}
 
@@ -26,26 +26,26 @@ class InputNumeroDocumentoIdentificacion extends Backbone.View
 		var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
         	return true;
-		        
+
 		return /\d/.test(String.fromCharCode(keynum));
 	}
 	verificar_numero_documento_identificacion(e)
 	{
 		e.preventDefault();
 		$.ajax({
-					url : "/control-de-asistencia/empleados/",	
-					
+					url : "",
+
 					type: "GET",
 
 					dataType: "text",
-					
-					data: {"numero_documento_identificacion":$("#id_model_form_empleado-numero_documento_identificacion").val(),},
+
+					data: {"numero_documento_identificacion":$("#id_numero_documento_identificacion").val(),},
 
 					async: true,
 
 					success: function(data){
-						
-					},	
+
+					},
 
 					error: function (data, textStatus, jqXHR) {
 		                var errors = $.parseJSON(data.responseText);
@@ -56,7 +56,7 @@ class InputNumeroDocumentoIdentificacion extends Backbone.View
 				});
 		return false;
 	}
-    render() 
+    render()
 	{
      	this.$el.html(this.template());
 		return this;

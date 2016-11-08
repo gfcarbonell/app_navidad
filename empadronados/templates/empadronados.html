@@ -1,0 +1,62 @@
+{% extends 'base_main_modulo_menu_control.html' %}
+{% load static from staticfiles %}
+{% block title %}
+	Empadronamiento Municipal | Empadronados
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Empadronamiento Municipal {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+{% block url_menu_control %} {% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %} {% endblock url_menu_control %}
+
+{% block panel_nombre_menu %} Empadronado {% endblock panel_nombre_menu%}
+
+{% block background_agregar_movil %} background-red {% endblock background_agregar_movil %}
+{% block background_agregar_desktop %} background-red {% endblock background_agregar_desktop %}
+
+{% block action_form_search_ %} {% url "empadronado:control" %} {% endblock action_form_search_ %}
+
+{% block url_agregar_registro_movil %} {% url "empadronado:create" %} {% endblock url_agregar_registro_movil %}
+{% block url_agregar_registro_desktop %} {% url "empadronado:create" %} {% endblock url_agregar_registro_desktop %}
+
+{% block background_table_head %} background-red {% endblock background_table_head %}
+{% block background_paginas %} background-red {% endblock background_paginas %}
+
+{% block table_column %}
+	<th class="table-head-row-column"><a href="" class="link"><input type="checkbox"> </a></th>
+  <th class="table-head-row-column"><a href="" class="link"> Código </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Nombre Completo </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Doc. Identificación </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Número Doc. Identificación </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Fecha Nacimiento </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Género </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Télefono </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Celular </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Correo Electrónico </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Fecha Registro </a></th>
+	<th class="table-head-row-column"><a href="" class="link"> Activo </a></th>
+
+{% endblock table_column %}
+
+{% block table_row %}
+	{% if object_list.count > 0 %}
+		{% include "empadronado_table.html" %}
+	{% else %}
+		{% include "empadronado_table.html" %}
+	{% endif %}
+{% endblock table_row %}
+
+{% block background_eliminar_movil %} background-red {% endblock background_eliminar_movil %}
+{% block background_eliminar_desktop %} background-red {% endblock background_eliminar_desktop %}
+
+{% block background_search_pagina_submit %} background-red {% endblock background_search_pagina_submit %}
+
+{% block script_template %}
+	<script id ="input_search_registro_template" type="text/template">
+		<input name="search_registro" type="search" id="input_search_registro" class="input-field-default">
+	</script>
+{% endblock script_template %}
