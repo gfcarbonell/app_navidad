@@ -80,19 +80,69 @@ class EmpadronadoUpdateView(TipoPerfilUsuarioMixin, UpdateView):
         return super(EmpadronadoUpdateView, self).form_valid(form)
 
 
+class EmpadronadoReportListView(PaginationMixin, TipoPerfilUsuarioMixin, ListView):
+    model         = Empadronado
+    template_name = 'empadronado_report.html'
+    paginate_by   = 25
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpadronadoReportListView, self).get_context_data(**kwargs)
+        boton_menu     = True
+        total_registro = self.model.objects.count()
+        total_masculino = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+        total_femenino  = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+        data = {
+            'boton_menu'    : boton_menu,
+            'total_registro': total_registro,
+            'total_masculino' : total_masculino,
+            'total_femenino' : total_femenino,
+        }
+
+        context.update(data)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        if self.request.GET.get('radio_genero', None):
+            self.object_list = self.get_queryset()
+            context = self.get_context_data()
+            value = self.request.GET.get('radio_genero', None)
+            if value == 'Masculino':
+                context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+                context['total_femenino'] = 0
+                context['total_registro'] = context['total_masculino']
+            if value == 'Femenino':
+                context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+                context['total_masculino'] = 0
+                context['total_registro'] = context['total_femenino']
+            if value == 'General':
+                context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+                context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+                context['total_registro'] = self.model.objects.all().count()
+            return self.render_to_response(context)
+        else:
+            context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+            context['total_femenino']  = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+            context['total_registro'] = self.object_list.count()
+            return super(EmpadronadoReportListView, self).get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+        if  self.request.GET.get('radio_genero', None):
+            value = self.request.GET.get('radio_genero', None)
+            if value == 'Masculino':
+                queryset = self.model.objects.filter(Q(genero__icontains='Masculino'))
+            elif value == 'Femenino':
+                queryset = self.model.objects.filter(Q(genero__icontains='Femenino'))
+            elif value == 'General':
+                queryset = self.model.objects.all()
+        else:
+            queryset = super(EmpadronadoReportListView, self).get_queryset()
+        return queryset
+
+
 class EmpadronadoControlListView(PaginationMixin, TipoPerfilUsuarioMixin, ListView):
     model         = Empadronado
     template_name = 'empadronados.html'
     paginate_by   = 10
-
-    def get_context_data(self, **kwargs):
-        context = super(EmpadronadoControlListView, self).get_context_data(**kwargs)
-        boton_menu = True
-        data = {
-			'boton_menu':boton_menu,
-			}
-        context.update(data)
-        return context
 
     def get_context_data(self, **kwarg):
         context     = super(EmpadronadoControlListView, self).get_context_data(**kwarg)

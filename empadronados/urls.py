@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^empadronamiento-municipal/empadronados/$', views.EmpadronadoControlListView.as_view(), name='control'),
     url(r'^empadronamiento-municipal/empadronados/(?P<search_registro>[-\w\W\d]+)/$', views.EmpadronadoControlListView.as_view(), name='control'),
     url(r'^empadronamiento-municipal/empadronado/(?P<slug>[-\w\W\d]+)/$', views.EmpadronadoDetailView.as_view(), name='detail'),
+    url(r'^empadronamiento-municipal/reportes$', views.EmpadronadoReportListView.as_view(), name='report'),
 ]

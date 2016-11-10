@@ -1,0 +1,362 @@
+{% extends 'base_main_modulo_nav.html'%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block title %}
+	Empadronamiento Municipal | Nuevo Niño(a)
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Navidad_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+{% block url_menu_control %} {% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %} {% endblock url_menu_control %}
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+{% block section %}
+	<!-- Panel de Control -->
+	<article class="control">
+		<!-- Control - Head -->
+		<div class="control-head">
+			<!-- Titulo -->
+			<div class="control-head-titulo ">
+				<h3 class="subtitulo upper-case color-white text-shadow-black text-center">
+					Reportes de {% block panel_nombre_menu %} Empadronados {% endblock panel_nombre_menu%}
+				</h3>
+			</div>
+
+		</div>
+		<!-- Control - Body -->
+		<div class="control-body">
+			<!-- Acciones -->
+			<div class="actions">
+        <div class="container">
+
+          <form class="form-report margin-auto-left-right" action="" method="GET">
+            <!-- Select Report -->
+            <div class="">
+							<div class="flex-space-between">
+								<!-- Fecha Registro -->
+	              <div class="">
+	                <!-- Titulo -->
+	          			<div class="control-head-titulo ">
+	          				<h3 class="rotulo color-white text-shadow-black text-center">
+	          					Por Registro de Fecha
+	          				</h3>
+	          			</div>
+	                <!-- Tipo -->
+	                <div class="">
+	                  <!-- Todos -->
+	                  <div class="container padding-normal-down">
+	                    <label class="label" for="id_radio_todos">
+	                      <input type="radio" id="id_radio_report_todos" value ="Todos" name="radio_report" checked="checked">
+	                      Todos
+	                    </label>
+	                  </div>
+	                  <!-- Fecha -->
+	                  <div class="container-componente-panel-dual">
+	                 		<div class="componente-panel-dual">
+	                 			<!-- Field -->
+	                 			<div class="field-panel">
+	                 				<!-- Label -->
+	                 				<div class="container-label-panel">
+	                          <label class="label" for="id_radio_report_fecha">
+	                            <input type="radio" id="id_radio_report_fecha" value="Fecha" name="radio_report">
+	                            Fecha
+	                          </label>
+	                 				</div>
+	                 				<!-- Input -->
+	                 				<div class="input-panel">
+	                 					<input type="date" name="radio_report" class="input-field-default" value="">
+	                 				</div>
+	                 			</div>
+	                 		</div>
+	                 	</div>
+									  <!-- Rango de Fecha -->
+										<div class="container ">
+											<label class="label" for="id_radio_report_rango_fecha">
+												<input type="radio" id="id_radio_report_rango_fecha" value="rango_fecha" name="radio_report">
+												Rango de Fecha
+											</label>
+										</div>
+
+	                  <div class="container-componente-panel-dual">
+	                 		<div class="componente-panel-dual">
+	                 			<!-- Field -->
+	                 			<div class="field-panel">
+	                 				<!-- Label -->
+	                 				<div class="container-label-panel">
+	                          <label class="label" for="id_radio_inicio_fecha">
+	                            Inicio de Fecha
+	                          </label>
+	                 				</div>
+	                 				<!-- Input -->
+	                 				<div class="input-panel padding-normal-down">
+	                 					<input type="date" id="id_radio_inicio_fecha" name="inicio_fecha" class="input-field-default " value="">
+	                 				</div>
+	                 			</div>
+	                 		</div>
+	                    <div class="componente-panel-dual">
+	                 			<!-- Field -->
+	                 			<div class="field-panel">
+	                        <!-- Label -->
+	                        <div class="container-label-panel">
+	                          <label class="label" for="id_radio_general">
+	                            Fin de Fecha
+	                          </label>
+	                        </div>
+	                        <!-- Input -->
+	                        <div class="input-panel padding-normal-down">
+	                          <input type="date" name="fin_fecha" class="input-field-default " value="">
+	                        </div>
+	                 			</div>
+	                 		</div>
+	                 	</div>
+	                </div>
+	              </div>
+								<!-- Género -->
+								<div class="">
+	                <!-- Titulo -->
+	          			<div class="control-head-titulo ">
+	          				<h3 class="rotulo color-white text-shadow-black text-center">
+	          					Por Rango de Edades
+	          				</h3>
+	          			</div>
+									<!-- Tipo -->
+									<div class="">
+
+										<div class="container padding-normal-down">
+											<input type="radio" id="id_radio_general" value="General" name="radio_genero" checked="checked">
+											<label class="label" for="id_radio_general">
+												General
+											</label>
+										</div>
+
+										<div class="container padding-normal-down">
+											<div class="container">
+												<input type="radio" id="id_radio_masculino" value="Masculino" name="radio_genero">
+												<label class="label" for="id_radio_masculino">
+													Masculino
+												</label>
+											</div>
+										</div>
+
+										<div class="container padding-normal-down">
+											<div class="">
+												<input type="radio" id="id_radio_femenino" value="Femenino" name="radio_genero">
+												<label class="label" for="id_radio_femenino">
+													Femenino
+												</label>
+											</div>
+										</div>
+
+									</div>
+	              </div>
+							</div>
+							  <!-- Por Rango de Edades -->
+							<div class="">
+								<!-- Titulo -->
+								<div class="control-head-titulo ">
+									<h3 class="rotulo color-white text-shadow-black text-center">
+										Por Rango de Edades
+									</h3>
+								</div>
+								<!-- Tipo -->
+								<div class="">
+									<div class="container padding-normal-down">
+										<input type="radio" id="id_radio_nino_3" name="radio_report">
+										<label class="label" for="id_radio_nino_3">
+											De 0 a 3 año(s)
+										</label>
+									</div>
+
+									<div class="container padding-normal-down">
+										<div class="container">
+											<input type="radio" id="id_radio_nino_7" name="radio_report">
+											<label class="label" for="id_radio_nino_7">
+												De 4 a 7 años
+											</label>
+										</div>
+									</div>
+
+									<div class="container padding-normal-down">
+										<div class="">
+											<input type="radio" id="id_radio_nino_10" name="radio_report">
+											<label class="label" for="id_radio_nino_10">
+												De 7 a 10 años
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+            </div>
+            <!-- Submit -->
+            <div class="componente">
+              <div class="container-submit background-verde-pastel ">
+                <input type="submit" class="submit color-white text-shadow-black ">
+              </div>
+            </div>
+          </form>
+        </div>
+
+			</div>
+			<!-- Table - Container -->
+			<div class="container-table background-white" id="table_usuario">
+				<!-- Table -->
+				<table class="table" class="table">
+					<!-- Table - Head -->
+					<thead class="table-head {% block background_table_head %} background-gray {% endblock background_table_head %}">
+						<tr class="table-head-row upper-case">
+							{% block table_column %}
+								<th class="table-head-row-column"><a href="" class="link"><input type="checkbox"> </a></th>
+							  <th class="table-head-row-column"><a href="" class="link"> Código </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Nombre Completo </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Doc. Identificación </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Número Doc. Identificación </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Fecha Nacimiento </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Género </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Télefono </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Celular </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Correo Electrónico </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Fecha Registro </a></th>
+								<th class="table-head-row-column"><a href="" class="link"> Activo </a></th>
+							{% endblock table_column %}
+						</tr>
+					</thead>
+					<!-- Table - Body -->
+					<tbody class="table-body" id="container_table_body">
+            {% block table_row %}
+            	{% if object_list.count > 0 %}
+            		{% include "empadronado_table_report.html" %}
+            	{% else %}
+            		{% include "empadronado_table_report.html" %}
+            	{% endif %}
+            {% endblock table_row %}
+					</tbody>
+				</table>
+			</div>
+			<!-- Paginación -->
+			<div class="paginacion">
+				<!-- Paginas -->
+			    <div class="paginas border-white-1 {% block background_paginas %} background-gray {% endblock background_paginas %} ">
+	    		    <!-- Botón Atras - Prev -->
+	    	    	{% if page_obj.has_previous %}
+	    	    		<!-- Pagina - Prev - No Select -->
+	    		        <div class="paginas-prev">
+	    		       		<a href="?{{ page_obj.previous_page_number.querystring }}" class="paginas-prev-noselect icon-chevron-left {% block boton_pagina_prev_color %} {% endblock boton_pagina_prev_color %}"> </a>
+	    		        </div>
+	    	    	{% else %}
+	    	    	   <!-- Pagina - Prev - Select -->
+	    		        <div class="paginas-prev">
+	    		       		<span class="paginas-prev-select icon-chevron-left"> </span>
+	    		        </div>
+	    	    	{% endif %}
+
+	    		    <!-- Rango de Páginas -->
+	    			<div class="paginas-rango">
+	    			    {% for page in page_obj.pages %}
+	    			        {% if page %}
+	    			            {% ifequal page page_obj.number %}
+	    			           		<!-- Pagina No Select -->
+	    			                <div class="pagina">
+	    			               		<span class="pagina-select {% block fondo_border %} background-white {% endblock fondo_border %}">{{ page }}</span>
+	    			               	</div>
+	    			            {% else %}
+	    			            	<!-- Pagina Select -->
+	    			                <div class="pagina">
+	    			                	<a href="?{{ page.querystring }}" class="pagina-noselect">{{ page }}</a>
+	    			                </div>
+	    			            {% endifequal %}
+	    			        {% else %}
+	    			        	  <!-- Pagina - Varios -->
+	    			            <div class="pagina">
+	    			            	<span class="pagina-varios">
+	    			            		...
+	    			            	</span>
+	    			            </div>
+	    			        {% endif %}
+	    			    {% endfor %}
+	    		    </div>
+	    		    <!-- Botón Adelante - Next -->
+	    		    {% if page_obj.has_next %}
+	    		  	    <!-- Pagina - Next - No Select -->
+	    		        <div class="paginas-next">
+	    		        	<a href="?{{ page_obj.next_page_number.querystring }}"
+	    		        	class="paginas-next-noselect icon-chevron-right
+	    		        	{% block boton_pagina_next_color %} {% endblock boton_pagina_next_color%} "> </a>
+	    		        </div>
+	    		    {% else %}
+	    		    	<!-- Pagina - Next - Select -->
+	    		        <div class="paginas-next">
+	    		        	<span class="paginas-next-select icon-chevron-right"> </span>
+	    		        </div>
+	    		    {% endif %}
+			    </div>
+			</div>
+			<!-- Detalles -->
+			<div class="detalles">
+
+				<!-- Total Masculino -->
+				<div class="total font-weight-bolder padding-normal-up-down color-red">
+					<p class="total-items">
+						<!-- Valor Total -->
+						Masculino: <span class="total-valor color-black">
+								{% if total_masculino == 0 %}
+									0
+								{% else %}
+									{{total_masculino}}
+								{% endif %}
+								 </span>
+					</p>
+
+				</div>
+				<!-- Total Femenino -->
+				<div class="total font-weight-bolder padding-normal-up-down color-red">
+					<p class="total-items">
+						<!-- Valor Total -->
+						Femenino: <span class="total-valor color-black">
+								{% if total_femenino == 0 %}
+									0
+								{% else %}
+									{{total_femenino}}
+								{% endif %}
+								 </span>
+					</p>
+
+				</div>
+				<!-- Total de Registro -->
+				<div class="total font-weight-bolder padding-normal-up-down color-red">
+					<p class="total-items">
+						<!-- Valor Total -->
+						Total: <span class="total-valor color-black">
+								{% if total_registro == 0 %}
+									0
+								{% else %}
+									{{total_registro}}
+								{% endif %}
+							   </span>
+					</p>
+
+				</div>
+
+				<!-- Buscar - Página -->
+				<div class="search-pagina padding-normal-up-down ">
+					<!-- Form - Search -->
+					<form action="" method="get" class="form-pagina">
+						<!-- Label - Search -->
+						<label for="search_numero_pagina" class="font-weight-bolder">N° Página</label>
+						<!-- Input - Search -->
+						<input type="number" name="page" min="1" class="number input-field-default" id="search_numero_pagina">
+						<!-- Submit - Go -->
+						<div class="container-submit-small
+						{% block background_search_pagina_submit %} background-gray {% endblock background_search_pagina_submit %}
+						border-white-2 box-shadow-black-transparent">
+							<input type="submit" class="submit" value="ir">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</article>
+{% endblock section %}

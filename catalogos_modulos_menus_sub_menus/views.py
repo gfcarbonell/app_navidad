@@ -10,6 +10,7 @@ class CatalagoModuloMenuTemplateView(TipoPerfilUsuarioMixin, TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(CatalagoModuloMenuTemplateView, self).get_context_data(**kwargs)
 		boton_menu = None
+		catalogos_modulos_menus = None
 		if self.request.user.is_authenticated():
 			catalogos_modulos_menus = CatalogoModuloMenuSubMenu.objects.filter(menu__slug='main')
 		data = {
@@ -28,6 +29,7 @@ class EmpadronamientoMunicipalTemplateView(TipoPerfilUsuarioMixin, TemplateView)
 	def get_context_data(self, **kwargs):
 		context = super(EmpadronamientoMunicipalTemplateView, self).get_context_data(**kwargs)
 		boton_menu = None
+		catalogos_modulos_menus = None
 		if self.request.user.is_authenticated():
 			catalogos_modulos_menus = CatalogoModuloMenuSubMenu.objects.get(modulo__slug='empadronamiento-municipal', menu__slug='main')
 		data = {
@@ -45,7 +47,8 @@ class EmpadronamientoMunicipalMenuTemplateView(TipoPerfilUsuarioMixin, TemplateV
 
 	def get_context_data(self, **kwargs):
 		context = super(EmpadronamientoMunicipalMenuTemplateView, self).get_context_data(**kwargs)
-
+		catalogos_modulos = None
+		catalogos_modulos_menus = None
 		if self.request.user.is_authenticated():
 			catalogos_modulos_menus = CatalogoModuloMenuSubMenu.objects.filter(modulo__slug='empadronamiento-municipal').exclude(menu__slug ='main')
 			catalogos_modulos 	    = CatalogoModuloMenuSubMenu.objects.filter(menu__slug='main')
