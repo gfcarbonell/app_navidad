@@ -29,213 +29,214 @@
 		</div>
 		<!-- Control - Body -->
 		<div class="control-body">
-			<!-- Acciones -->
-			<div class="actions">
-        <div class="container">
-
-          <form class="form-report margin-auto-left-right" action="" method="GET">
-            <!-- Select Report -->
-            <div class="">
-							<div class="flex-space-between">
-								<!-- Fecha Registro -->
-	              <div class="">
-	                <!-- Titulo -->
-	          			<div class="control-head-titulo ">
-	          				<h3 class="rotulo color-white text-shadow-black text-center">
-	          					Por Registro de Fecha
-	          				</h3>
-	          			</div>
-	                <!-- Tipo -->
-	                <div class="">
-	                  <!-- Todos -->
-	                  <div class="container padding-normal-down">
-	                    <label class="label" for="id_radio_todos">
-	                      <input type="radio" id="id_radio_report_todos" value ="Todos" name="radio_report" checked="checked">
-	                      Todos
-	                    </label>
-	                  </div>
-	                  <!-- Fecha -->
-	                  <div class="container-componente-panel-dual">
-	                 		<div class="componente-panel-dual">
-	                 			<!-- Field -->
-	                 			<div class="field-panel">
-	                 				<!-- Label -->
-	                 				<div class="container-label-panel">
-	                          <label class="label" for="id_radio_report_fecha">
-	                            <input type="radio" id="id_radio_report_fecha" value="Fecha" name="radio_report">
-	                            Fecha
-	                          </label>
-	                 				</div>
-	                 				<!-- Input -->
-	                 				<div class="input-panel">
-	                 					<input type="date" name="radio_report" class="input-field-default" value="">
-	                 				</div>
-	                 			</div>
-	                 		</div>
-	                 	</div>
-									  <!-- Rango de Fecha -->
-										<div class="container ">
-											<label class="label" for="id_radio_report_rango_fecha">
-												<input type="radio" id="id_radio_report_rango_fecha" value="rango_fecha" name="radio_report">
-												Rango de Fecha
-											</label>
-										</div>
-
-	                  <div class="container-componente-panel-dual">
-	                 		<div class="componente-panel-dual">
-	                 			<!-- Field -->
-	                 			<div class="field-panel">
-	                 				<!-- Label -->
-	                 				<div class="container-label-panel">
-	                          <label class="label" for="id_radio_inicio_fecha">
-	                            Inicio de Fecha
-	                          </label>
-	                 				</div>
-	                 				<!-- Input -->
-	                 				<div class="input-panel padding-normal-down">
-	                 					<input type="date" id="id_radio_inicio_fecha" name="inicio_fecha" class="input-field-default " value="">
-	                 				</div>
-	                 			</div>
-	                 		</div>
-	                    <div class="componente-panel-dual">
-	                 			<!-- Field -->
-	                 			<div class="field-panel">
-	                        <!-- Label -->
-	                        <div class="container-label-panel">
-	                          <label class="label" for="id_radio_general">
-	                            Fin de Fecha
-	                          </label>
-	                        </div>
-	                        <!-- Input -->
-	                        <div class="input-panel padding-normal-down">
-	                          <input type="date" name="fin_fecha" class="input-field-default " value="">
-	                        </div>
-	                 			</div>
-	                 		</div>
-	                 	</div>
-	                </div>
-	              </div>
-								<!-- Género -->
-								<div class="">
-	                <!-- Titulo -->
-	          			<div class="control-head-titulo ">
-	          				<h3 class="rotulo color-white text-shadow-black text-center">
-	          					Por Rango de Edades
-	          				</h3>
-	          			</div>
-									<!-- Tipo -->
-									<div class="">
-
-										<div class="container padding-normal-down">
-											<input type="radio" id="id_radio_general" value="General" name="radio_genero" checked="checked">
-											<label class="label" for="id_radio_general">
-												General
-											</label>
-										</div>
-
-										<div class="container padding-normal-down">
-											<div class="container">
-												<input type="radio" id="id_radio_masculino" value="Masculino" name="radio_genero">
-												<label class="label" for="id_radio_masculino">
-													Masculino
-												</label>
-											</div>
-										</div>
-
-										<div class="container padding-normal-down">
-											<div class="">
-												<input type="radio" id="id_radio_femenino" value="Femenino" name="radio_genero">
-												<label class="label" for="id_radio_femenino">
-													Femenino
-												</label>
-											</div>
-										</div>
-
-									</div>
-	              </div>
-							</div>
-							  <!-- Por Rango de Edades -->
+		  <div class="panel-dual">
+				<!-- Acciones -->
+				<div class="actions">
+					<div class="container">
+						<form class="form-report margin-auto-left-right" action="" method="GET">
+							<!-- Select Report -->
 							<div class="">
-								<!-- Titulo -->
-								<div class="control-head-titulo ">
-									<h3 class="rotulo color-white text-shadow-black text-center">
-										Por Rango de Edades
-									</h3>
-								</div>
-								<!-- Tipo -->
-								<div class="">
-									<div class="container padding-normal-down">
-										<input type="radio" id="id_radio_nino_3" name="radio_report">
-										<label class="label" for="id_radio_nino_3">
-											De 0 a 3 año(s)
-										</label>
-									</div>
-
-									<div class="container padding-normal-down">
-										<div class="container">
-											<input type="radio" id="id_radio_nino_7" name="radio_report">
-											<label class="label" for="id_radio_nino_7">
-												De 4 a 7 años
-											</label>
+								<div class="flex-space-between">
+									<!-- Fecha Registro -->
+									<div class="">
+										<!-- Titulo -->
+										<div class="control-head-titulo ">
+											<h3 class="rotulo color-white text-shadow-black text-center">
+												Por Registro de Fecha
+											</h3>
 										</div>
-									</div>
-
-									<div class="container padding-normal-down">
+										<!-- Tipo -->
 										<div class="">
-											<input type="radio" id="id_radio_nino_10" name="radio_report">
-											<label class="label" for="id_radio_nino_10">
-												De 7 a 10 años
-											</label>
+											<!-- Todos -->
+											<div class="container padding-normal-down">
+												<label class="label" for="id_radio_todos">
+													<input type="radio" id="id_radio_report_todos" value ="Todos" name="radio_report" checked="checked">
+													Todos
+												</label>
+											</div>
+											<!-- Fecha -->
+											<div class="container-componente-panel-dual">
+												<div class="componente-panel-dual">
+													<!-- Field -->
+													<div class="field-panel">
+														<!-- Label -->
+														<div class="container-label-panel">
+															<label class="label" for="id_radio_report_fecha">
+																<input type="radio" id="id_radio_report_fecha" value="Fecha" name="radio_report">
+																Fecha
+															</label>
+														</div>
+														<!-- Input -->
+														<div class="input-panel">
+															<input type="date" name="input_fecha" class="input-field-default">
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- Rango de Fecha -->
+											<div class="container ">
+											  <label class="label" for="id_radio_report_rango_fecha">
+											    <input type="radio" id="id_radio_report_rango_fecha" value="Rango_Fecha" name="radio_report">
+											    Rango de Fecha
+											  </label>
+											</div>
+											<div class="container-componente-panel-dual">
+												<!-- Inicio Fecha -->
+												<div class="componente-panel-dual">
+											    <!-- Field -->
+											    <div class="field-panel">
+											      <!-- Label -->
+											      <div class="container-label-panel">
+											        <label class="label" for="id_radio_inicio_fecha">
+											          Inicio de Fecha
+											        </label>
+											      </div>
+											      <!-- Input -->
+											      <div class="input-panel padding-normal-down">
+											        <input type="date" id="id_radio_inicio_fecha" name="inicio_fecha" class="input-field-default " value="">
+											      </div>
+											    </div>
+											  </div>
+												<!-- Fin Fecha -->
+												<div class="componente-panel-dual">
+													<!-- Field -->
+													<div class="field-panel">
+														<!-- Label -->
+														<div class="container-label-panel">
+															<label class="label" for="id_radio_fin_fecha">
+																Fin Fecha
+															</label>
+														</div>
+														<!-- Input -->
+														<div class="input-panel padding-normal-down">
+															<input type="date" id="id_radio_fin_fecha" name="fin_fecha" class="input-field-default " value="">
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
+									<!-- Género -->
+									<div class="">
+										<!-- Titulo -->
+										<div class="control-head-titulo ">
+											<h3 class="rotulo color-white text-shadow-black text-center">
+												Género
+											</h3>
+										</div>
+										<!-- Tipo -->
+										<div class="">
+
+											<div class="container padding-normal-down">
+												<input type="radio" id="id_radio_general" value="General" name="radio_genero" checked="checked">
+												<label class="label" for="id_radio_general">
+													General
+												</label>
+											</div>
+
+											<div class="container padding-normal-down">
+												<div class="container">
+													<input type="radio" id="id_radio_masculino" value="Masculino" name="radio_genero">
+													<label class="label" for="id_radio_masculino">
+														Masculino
+													</label>
+												</div>
+											</div>
+
+											<div class="container padding-normal-down">
+												<div class="">
+													<input type="radio" id="id_radio_femenino" value="Femenino" name="radio_genero">
+													<label class="label" for="id_radio_femenino">
+														Femenino
+													</label>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- Por Rango de Edades -->
+								<div class="">
+								  <!-- Titulo -->
+								  <div class="control-head-titulo ">
+								    <h3 class="rotulo color-white text-shadow-black text-center">
+								      Por Rango de Edades
+								    </h3>
+								  </div>
+								  <!-- Tipo -->
+								  <div class="">
+								    <div class="container padding-normal-down">
+								      <input type="radio" id="id_radio_nino_3" value ="Rango_0_3" name="radio_report">
+								      <label class="label" for="id_radio_nino_3">
+								        De 0 a 3 año(s)
+								      </label>
+								    </div>
+
+								    <div class="container padding-normal-down">
+								      <div class="container">
+								        <input type="radio" id="id_radio_nino_7" value ="Rango_4_7" name="radio_report">
+								        <label class="label" for="id_radio_nino_7">
+								          De 4 a 7 años
+								        </label>
+								      </div>
+								    </div>
+
+								    <div class="container padding-normal-down">
+								      <div class="">
+								        <input type="radio" id="id_radio_nino_10" value ="Rango_8_10" name="radio_report">
+								        <label class="label" for="id_radio_nino_10">
+								          De 7 a 10 años
+								        </label>
+								      </div>
+								    </div>
+								  </div>
 								</div>
 							</div>
-            </div>
-            <!-- Submit -->
-            <div class="componente">
-              <div class="container-submit background-verde-pastel ">
-                <input type="submit" class="submit color-white text-shadow-black ">
-              </div>
-            </div>
-          </form>
-        </div>
-
-			</div>
-			<!-- Table - Container -->
-			<div class="container-table background-white" id="table_usuario">
-				<!-- Table -->
-				<table class="table" class="table">
-					<!-- Table - Head -->
-					<thead class="table-head {% block background_table_head %} background-gray {% endblock background_table_head %}">
-						<tr class="table-head-row upper-case">
-							{% block table_column %}
-								<th class="table-head-row-column"><a href="" class="link"><input type="checkbox"> </a></th>
-							  <th class="table-head-row-column"><a href="" class="link"> Código </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Nombre Completo </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Doc. Identificación </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Número Doc. Identificación </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Fecha Nacimiento </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Género </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Télefono </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Celular </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Correo Electrónico </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Fecha Registro </a></th>
-								<th class="table-head-row-column"><a href="" class="link"> Activo </a></th>
-							{% endblock table_column %}
-						</tr>
-					</thead>
-					<!-- Table - Body -->
-					<tbody class="table-body" id="container_table_body">
-            {% block table_row %}
-            	{% if object_list.count > 0 %}
-            		{% include "empadronado_table_report.html" %}
-            	{% else %}
-            		{% include "empadronado_table_report.html" %}
-            	{% endif %}
-            {% endblock table_row %}
-					</tbody>
-				</table>
-			</div>
+							<!-- Submit -->
+							<div class="componente">
+								<div class="container-submit background-verde-pastel ">
+									<input type="submit" class="submit color-white text-shadow-black ">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Table - Container -->
+				<div class="container-table background-white" id="table_usuario">
+					<!-- Table -->
+					<table class="table" class="table">
+						<!-- Table - Head -->
+						<thead class="table-head {% block background_table_head %} background-gray {% endblock background_table_head %}">
+							<tr class="table-head-row upper-case">
+								{% block table_column %}
+									<th class="table-head-row-column"><a href="" class="link"><input type="checkbox"> </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Código </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Nombre Completo </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Doc. Identificación </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Número Doc. Identificación </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Fecha Nacimiento </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Género </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Télefono </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Celular </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Correo Electrónico </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Fecha Registro </a></th>
+									<th class="table-head-row-column"><a href="" class="link"> Activo </a></th>
+								{% endblock table_column %}
+							</tr>
+						</thead>
+						<!-- Table - Body -->
+						<tbody class="table-body" id="container_table_body">
+							{% block table_row %}
+								{% if object_list.count > 0 %}
+									{% include "empadronado_table_report.html" %}
+								{% else %}
+									{% include "empadronado_table_report.html" %}
+								{% endif %}
+							{% endblock table_row %}
+						</tbody>
+					</table>
+				</div>
+		  </div>
 			<!-- Paginación -->
 			<div class="paginacion">
 				<!-- Paginas -->

@@ -26,5 +26,5 @@ class Ubicacion(models.Model):
     									    ],
     								db_index=True,
     								help_text='Escribir nombre (Zona/Vía).')
-    denominacion	= models.CharField(verbose_name='Denominación', blank=True, max_length=255, null=True, help_text='(Opcional).')
+    denominacion					= models.CharField(verbose_name='Denominación', blank=True, max_length=255, null=True)                                
     observacion_zona_via = models.TextField( verbose_name='Observación (Zona/Vía)', blank=True, null=True, help_text='(Opcional).')

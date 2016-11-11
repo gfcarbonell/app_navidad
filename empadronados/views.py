@@ -10,6 +10,7 @@ import socket
 from pure_pagination.mixins import PaginationMixin
 from django.template.defaultfilters import slugify
 from infos_sistemas.mixins import TipoPerfilUsuarioMixin
+import datetime
 
 class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
     template_name = 'empadronado_create.html'
@@ -102,38 +103,153 @@ class EmpadronadoReportListView(PaginationMixin, TipoPerfilUsuarioMixin, ListVie
         return context
 
     def get(self, request, *args, **kwargs):
-        if self.request.GET.get('radio_genero', None):
+        if  self.request.GET.get('radio_report', None) and self.request.GET.get('radio_genero', None):
             self.object_list = self.get_queryset()
             context = self.get_context_data()
             value = self.request.GET.get('radio_genero', None)
-            if value == 'Masculino':
-                context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
-                context['total_femenino'] = 0
-                context['total_registro'] = context['total_masculino']
-            if value == 'Femenino':
-                context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
-                context['total_masculino'] = 0
-                context['total_registro'] = context['total_femenino']
-            if value == 'General':
-                context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
-                context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
-                context['total_registro'] = self.model.objects.all().count()
+            select = self.request.GET.get('radio_report', None)
+            if select == 'Todos':
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
+                    context['total_registro'] = self.model.objects.all().count()
+            elif select == 'Fecha':
+                input_fecha = self.request.GET.get('input_fecha', None)
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__icontains=input_fecha)).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__icontains=input_fecha)).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__icontains=input_fecha)).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__icontains=input_fecha)).count()
+                    context['total_registro'] = context['total_masculino'] + context['total_femenino']
+            elif select == 'Rango_Fecha':
+                inicio_fecha = self.request.GET.get('inicio_fecha', None)
+                fin_fecha = self.request.GET.get('fin_fecha', None)
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha])).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha])).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha])).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha])).count()
+                    context['total_registro'] = context['total_masculino'] + context['total_femenino']
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_0_3':
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_registro'] = context['total_masculino'] + context['total_femenino']
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_4_7':
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31'))).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31'))).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31'))).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31'))).count()
+                    context['total_registro'] = context['total_masculino'] + context['total_femenino']
+            elif self.request.GET.get('radio_report', None) == 'Rango_8_10':
+                if value == 'Masculino':
+                    context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_femenino'] = 0
+                    context['total_registro'] = context['total_masculino']
+                elif value == 'Femenino':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_masculino'] = 0
+                    context['total_registro'] = context['total_femenino']
+                elif value == 'General':
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_femenino'] = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31'))).count()
+                    context['total_registro'] = context['total_masculino'] + context['total_femenino']
+
             return self.render_to_response(context)
         else:
-            context['total_masculino'] = self.model.objects.filter(Q(genero__icontains='Masculino')).count()
-            context['total_femenino']  = self.model.objects.filter(Q(genero__icontains='Femenino')).count()
-            context['total_registro'] = self.object_list.count()
             return super(EmpadronadoReportListView, self).get(self, request, *args, **kwargs)
 
     def get_queryset(self):
-        if  self.request.GET.get('radio_genero', None):
+        if  self.request.GET.get('radio_report', None) and self.request.GET.get('radio_genero', None):
             value = self.request.GET.get('radio_genero', None)
-            if value == 'Masculino':
-                queryset = self.model.objects.filter(Q(genero__icontains='Masculino'))
-            elif value == 'Femenino':
-                queryset = self.model.objects.filter(Q(genero__icontains='Femenino'))
-            elif value == 'General':
-                queryset = self.model.objects.all()
+            #select = self.request.GET.get('radio_report', None)
+            if self.request.GET.get('radio_report', None) == 'Todos':
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino'))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino'))
+                elif value == 'General':
+                    queryset = self.model.objects.all()
+
+            elif self.request.GET.get('radio_report', None) == 'Fecha':
+                input_fecha = self.request.GET.get('input_fecha', None)
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__icontains=input_fecha))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__icontains=input_fecha))
+                elif value == 'General':
+                    queryset = self.model.objects.filter(Q(fecha_registro__icontains=input_fecha))
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_Fecha':
+                inicio_fecha = self.request.GET.get('inicio_fecha', None)
+                fin_fecha = self.request.GET.get('fin_fecha', None)
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha] ))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_registro__range=[inicio_fecha, fin_fecha]))
+                elif value == 'General':
+                    queryset = self.model.objects.filter(fecha_registro__range=[inicio_fecha, fin_fecha])
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_0_3':
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31')))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2013-01-01', '2016-12-31')))
+                elif value == 'General':
+                    queryset = self.model.objects.filter(Q(fecha_registro__range=('2013-01-01', '2016-12-31')))
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_4_7':
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31')))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2009-01-01', '2012-12-31')))
+                elif value == 'General':
+                    queryset = self.model.objects.filter(Q(fecha_registro__range=('2009-01-01', '2012-12-31')))
+
+            elif self.request.GET.get('radio_report', None) == 'Rango_8_10':
+                if value == 'Masculino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Masculino') & Q(fecha_nacimiento__range=('2006-01-01', '2008-12-31')))
+                elif value == 'Femenino':
+                    queryset = self.model.objects.filter(Q(genero__icontains='Femenino') & Q(fecha_nacimiento__range=('2006-01-01', '2008-12-31')))
+                elif value == 'General':
+                    queryset = self.model.objects.filter(Q(fecha_registro__range=('2006-01-01', '2008-12-31')))
         else:
             queryset = super(EmpadronadoReportListView, self).get_queryset()
         return queryset

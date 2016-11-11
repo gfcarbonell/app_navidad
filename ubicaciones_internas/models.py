@@ -21,7 +21,7 @@ class UbicacionInterna(models.Model):
 	lote							= models.CharField(blank=True, max_length=20, null=True)
 	sub_lote						= models.CharField(blank=True, max_length=20, null=True)
 	kilometro						= models.CharField(blank=True, max_length=20, null=True)
-	denominacion					= models.CharField(verbose_name='Denominación', blank=True, max_length=255, null=True)
+	
 	referencia						= models.TextField(blank=True, null=True)
 
 	class Meta:
