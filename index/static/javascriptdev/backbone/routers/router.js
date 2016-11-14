@@ -19,9 +19,8 @@ var SelectInputDocumentoIdentificacion = require("../views/empleados/select_inpu
 
 var InputNumeroDocumentoIdentificacion = require("../views/empleados/input_numero_documento_identificacion");
 
+var LectorQR = require("../views/lector_qr_empadronado");
 
-var UsuariosView = require("../views/usuarios");
-var Usuarios = require("../collections/usuarios");
 var SearchBox = require("../views/search_box");
 
 
@@ -41,7 +40,12 @@ class Router extends Backbone.Router
             "empadronamiento-municipal/empadronados/"                         : "empadronados",
             "empadronamiento-municipal/empadronado/nuevo/"                     : "empadronado_nuevo",
             "empadronamiento-municipal/empadronado/:empadronado/modificar/"   : "empadronado_modificar",
+            "codigo-barra-qr/"   : "leer_codigo_barra_qr",
         };
+    }
+    leer_codigo_barra_qr(){
+      console.log("x");
+      //var x = new LectorQR({el:$("#container_read_codigo_barra_qr")});
     }
     empadronados()
     {

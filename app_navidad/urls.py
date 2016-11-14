@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^',                           include('catalogos_modulos_menus_sub_menus.urls', namespace='catalogo_modulo_menu_sub_menu')),
     url(r'^', 	                        include('usuarios.urls', namespace='usuario')),
     url(r'^', 	                        include('empleados.urls', namespace='empleado')),
-    url(r'^', 	                        include('empadronados.urls', namespace='empadronado')),
+    url(r'^empadronamiento-municipal/', 	                        include('empadronados.urls', namespace='empadronado')),
     #REST
     url(r'^api/', 						include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

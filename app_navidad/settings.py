@@ -14,7 +14,7 @@ SECRET_KEY = 'r8&tmihwg##xrlri5kj*x@_t&!)pt@c)jm4tq1u5p!&^sjufi3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -107,26 +107,27 @@ WSGI_APPLICATION = 'app_navidad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
 DATABASES = {
-   'default': {
-       'ENGINE': "sql_server.pyodbc",
-      'HOST': "127.0.0.1",
-       'PORT': '1433',
-       'USER': "sa",
-       'PASSWORD': "S1st3mas",
-       'NAME': "App_Navidad",
-       'OPTIONS': {
-            'host_is_server': True,
-            #'driver': 'ODBC Driver 13 for SQL Server',
-        },
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+#DATABASES = {
+#   'default': {
+#       'ENGINE': "sql_server.pyodbc",
+#       'HOST': "127.0.0.1",
+#       'PORT': '1433',
+#       'USER': "sa",
+#       'PASSWORD': "S1st3mas",
+#       'NAME': "App_Navidad",
+#       'OPTIONS': {
+#            'host_is_server': True,
+#            #'driver': 'ODBC Driver 13 for SQL Server',
+#        },
+#  }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

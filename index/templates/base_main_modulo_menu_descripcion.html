@@ -8,18 +8,14 @@
 			<!-- Módulo - Avatar -->
 			<figure class="modulo-main-avatar">
 				<!-- Módulo - Avatar - Imagen -->
-				<img 
-				src="{% block src_modulo_avatar_input %} 
-					 	{% static "imagenes/ico/System_1.ico"%} 
-					 {% endblock src_modulo_avatar_input %}"
-				alt="{% block alt_modulo_avatar_input %} 
-					 	{% static "imagenes/ico/System_1.ico"%} 
-					 {% endblock alt_modulo_avatar_input %}"
+				<img
+				src="{% block src_modulo_avatar_input %} {% static "imagenes/ico/System_1.ico"%} {% endblock src_modulo_avatar_input %}"
+				alt="{% block alt_modulo_avatar_input %} {% static "imagenes/ico/System_1.ico"%} {% endblock alt_modulo_avatar_input %}"
 				class="modulo-main-avatar-imagen">
 				<!-- Módulo - Avatar - Nombre -->
 				<figcaption class="modulo-main-avatar-nombre {% block nombre_modulo_styles_class %} border-bottom-gray-1 {% endblock nombre_modulo_styles_class %}">
 					{% block nombre_modulo %} Nombre Módulo {% endblock nombre_modulo %}
-				</figcaption>	
+				</figcaption>
 			</figure>
 			<!-- Boton Ingresar -->
 			<div class="modulo-main-boton">
@@ -34,7 +30,7 @@
 				</p>
 			</div>
 		</div>
-		
+
 		<!-- Módulo - Detalles -->
 		<div class="modulo-detail">
 			<!--  Módulo - Descripción -->
@@ -63,7 +59,7 @@
 					</p>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 {% endblock section %}

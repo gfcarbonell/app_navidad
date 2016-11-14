@@ -11,6 +11,9 @@ from pure_pagination.mixins import PaginationMixin
 from django.template.defaultfilters import slugify
 from infos_sistemas.mixins import TipoPerfilUsuarioMixin
 import datetime
+import qrcode
+from django.core.files import File
+import os
 
 class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
     template_name = 'empadronado_create.html'
@@ -34,7 +37,18 @@ class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
         self.object.direccion_ip    = socket.gethostbyname(socket.gethostname())
         self.object.ultimo_direccion_ip =  socket.gethostbyname(socket.gethostname())
         self.object.save()
-
+        #img_qr = qrcode.make(str(self.object.id).zfill(10))
+        img_qr = qrcode.make(self.object.id)
+        nombre_img_qr_extension = str(self.object.id).zfill(10)+".png"
+        f = open(nombre_img_qr_extension, "wb")
+        img_qr.save(f)
+        f.close()
+        reopen = open(nombre_img_qr_extension, "rb")
+        django_file = File(reopen)
+        self.object.codigo_barra_qr.save(nombre_img_qr_extension, django_file, save=True)
+        reopen.close()
+        self.object.save()
+        os.remove(nombre_img_qr_extension)
         return super(EmpadronadoCreateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -45,9 +59,6 @@ class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
 			}
         context.update(data)
         return context
-
-
-
 
 
 class EmpadronadoUpdateView(TipoPerfilUsuarioMixin, UpdateView):
@@ -297,6 +308,51 @@ class EmpadronadoDetailView(TipoPerfilUsuarioMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EmpadronadoDetailView, self).get_context_data(**kwargs)
+        boton_menu = True
+        data = {
+			'boton_menu':boton_menu,
+			}
+        context.update(data)
+        return context
+
+
+class EmpadronadoSearchQRListView(TipoPerfilUsuarioMixin, ListView):
+    template_name   = 'empadronado_search_qr.html'
+    model           = Empadronado
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpadronadoSearchQRListView, self).get_context_data(**kwargs)
+        boton_menu = True
+        data = {
+			'boton_menu':boton_menu,
+			}
+        context.update(data)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        if request.GET.get('codigo_barra_qr', None):
+            self.object_list = self.get_queryset()
+            context = self.get_context_data()
+            return self.render_to_response(context)
+        else:
+            return super(EmpadronadoSearchQRListView, self).get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+        if self.request.GET.get('codigo_barra_qr', None):
+            value = self.request.GET.get('codigo_barra_qr', None)
+            queryset = self.model.objects.filter(Q(id__contains=value))
+        else:
+            queryset = super(EmpadronadoSearchQRListView, self).get_queryset()
+        return queryset
+
+
+class EmpadronadoPrintTicketDetailView(TipoPerfilUsuarioMixin, DetailView):
+    template_name   = 'empadronado_ticket.html'
+    model           = Empadronado
+    queryset        = Empadronado.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpadronadoPrintTicketDetailView, self).get_context_data(**kwargs)
         boton_menu = True
         data = {
 			'boton_menu':boton_menu,
