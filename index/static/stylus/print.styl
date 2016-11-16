@@ -1,0 +1,238 @@
+amarillo_claro = #ffe788
+celeste = #2196f3
+celeste_lighten_1=#42a5f5
+azul = #1e67c7
+azul_acero = #1e6381
+azul_oscuro = #273b47
+gris = #FAFAFA
+gris_claro = #eff2e7
+gris_light = #888
+gris_oscuro = #333636
+rojo = #ff4842
+verde_pastel = #26a69a
+
+#Auspiciador
+  font-style: italic;
+  font-weight: bolder;
+  >span
+    color red
+.ticket-center-head
+  display: flex
+  width: 100%
+  justify-content: space-between;
+
+.ticket_imagen_small
+  display: flex
+  align-items: center;
+  justify-content: space-between;
+  >img
+    width: 45px
+    height: 45px
+  >figcaption
+    border 2px solid black
+    border-radius:  .5em
+    background: white
+    padding:  .5em
+    font-weight: bolder
+.ticket-left-modulo-small
+  width: 45px
+  height: 45px
+  >img
+    width: 100%
+    height:  100%
+.container-dual-ticket
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .25em 0
+.container-ticket
+  padding: .25em 0
+  display: flex;
+  flex-direction: column;
+  &-label
+    font-weight: bolder
+    display: block;
+    padding: 0 0 .3em 0
+  &-value
+    font-weight: bolder
+  &-value-small
+    font-weight: bolder
+    font-size: .8em
+.ticket
+    border 1px solid black
+    display: flex;
+    justify-content: space-between;
+    &-center
+      padding: .5em
+      margin: 0 auto
+      width: 78%
+      &-head
+        &-titulo
+          display: flex
+          justify-content: center;
+          align-items: center
+    &-left
+      width 270px
+      padding: .5em
+      border-right 2px dotted black
+      display: flex;
+      justify-content:  center;
+      align-items:  center
+      flex-direction: column;
+      &-logo
+        width 100%
+        display: flex
+        justify-content: space-between;
+        align-items:  center
+        >img
+          width: 45px
+          height: 45px
+        >figcaption
+
+          text-align: center
+          font-size: .8em
+          font-weight: bolder
+
+      &-modulo
+        width 100%
+        >img
+          background: white
+          border: 2px solid black
+          display: block;
+          margin: 0 auto;
+          width: 128px
+          height: 128px
+        >figcaption
+          padding: .5em 0
+          font-weight: bolder
+          margin: 0 auto;
+          text-align: center
+      &-fecha
+        width: 100%
+        >p
+          border 2px solid black
+          font-weight: bolder
+          margin: 0 auto
+          display: block
+          padding: .5em
+          text-align:  center
+          width: 120px
+          border-radius .5em
+@media  print
+  @page
+    margin: 0
+    padding: 0
+  .componente
+    display: none
+  #Auspiciador
+    font-style: italic;
+    font-weight: bolder;
+    >span
+      color red
+  .ticket-center-head
+    display: flex
+    width: 100%
+    justify-content: space-between;
+
+  .ticket_imagen_small
+    display: flex
+    align-items: center;
+    justify-content: space-between;
+    >img
+      width: 45px
+      height: 45px
+    >figcaption
+      border 2px solid black
+      border-radius:  .5em
+      background: white
+      padding:  .5em
+      font-weight: bolder
+  .ticket-left-modulo-small
+    width: 45px
+    height: 45px
+    >img
+      width: 100%
+      height:  100%
+  .container-dual-ticket
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .25em 0
+  .container-ticket
+    padding: .25em 0
+    display: flex;
+    flex-direction: column;
+    &-label
+      font-weight: bolder
+      display: block;
+      padding: 0 0 .3em 0
+    &-value
+      font-weight: bolder
+    &-value-small
+      font-weight: bolder
+      font-size: .8em
+  .ticket
+      border 1px solid black
+      display: flex;
+      justify-content: space-between;
+      &-center
+        padding: .5em
+        margin: 0 auto
+        width: 78%
+        &-head
+          &-titulo
+            display: flex
+            justify-content: center;
+            align-items: center
+      &-left
+        width 270px
+        padding: .5em
+        border-right 2px dotted black
+        display: flex;
+        justify-content:  center;
+        align-items:  center
+        flex-direction: column;
+        &-logo
+          width 100%
+          display: flex
+          justify-content: space-between;
+          align-items:  center
+          >img
+            width: 45px
+            height: 45px
+          >figcaption
+
+            text-align: center
+            font-size: .8em
+            font-weight: bolder
+
+        &-modulo
+          width 100%
+          >img
+            border: 2px solid black
+            display: block;
+            margin: 0 auto;
+            width: 128px
+            height: 128px
+          >figcaption
+            padding: .5em 0
+            font-weight: bolder
+            margin: 0 auto;
+            text-align: center
+        &-fecha
+          width: 100%
+          >p
+            border 2px solid black
+            font-weight: bolder
+            margin: 0 auto
+            display: block
+            padding: .5em
+            text-align:  center
+            width: 120px
+            border-radius .5em
+  header
+    display none
+  nav
+    display none
+  footer
+    display none

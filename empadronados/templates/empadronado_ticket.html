@@ -1,0 +1,117 @@
+{% extends 'base_main_modulo_nav.html'%}
+{% load static from staticfiles %}
+
+{% block title %}
+	Feliz Navidad
+{% endblock title %}
+{% block url_menu_control %} {% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %} {% endblock url_menu_control %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Navidad_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+{%block section%}
+
+<div class="ticket">
+  <div class="ticket-left">
+    <figure class="ticket-left-logo">
+      <img src="{% static "imagenes/png/Escudo_San_Andres.png" %}" alt="" />
+      <figcaption>
+        Municipalidad Distrital de San Andrés
+      </figcaption>
+    </figure>
+
+    <figure class="ticket-left-modulo">
+      <img src="{{object.codigo_barra_qr.url}}" alt="" />
+      <figcaption class="flex-full-center">
+        <span class="color-red display-block">Código:</span>{{object.id_empadronado}}
+      </figcaption>
+    </figure>
+
+    <div class="ticket-left-fecha">
+      <p>
+        20/12/2016 </br> 10:00 a.m.
+      </p>
+    </div>
+  </div>
+  <div class="ticket-center">
+    <div class="ticket-center-head">
+      <figure class="ticket_imagen_small">
+        <img src="{% static "imagenes/png/Campana_Navidad_1.png" %}" alt="" />
+      </figure>
+      <div class="ticket-center-head-titulo">
+        <h2>
+          Feliz Navidad 2016
+        </h2>
+      </div>
+      <figure class="ticket_imagen_small">
+        <img src="{{object.codigo_barra_qr.url}}" alt="" class="margin-normal-right"/>
+        <figcaption>
+          {{object.id_empadronado}}
+        </figcaption>
+      </figure>
+    </div>
+    <div class="container-ticket">
+      <label class="container-ticket-label">
+      Apellidos y Nombre(s)
+      </label>
+      <p class="container-ticket-value">
+          {{object.get_nombre_completo}}
+      </p>
+    </div>
+    <div class="container-dual-ticket ">
+      <div class="container-ticket">
+        <label class="container-ticket-label">
+          {{object.documento_identificacion.siglas}}
+        </label>
+        <p class="container-ticket-value">
+          {{object.numero_documento_identificacion}}
+        </p>
+      </div>
+      <div class="container-ticket">
+        <label class="container-ticket-label">
+          Fecha Nacimiento
+        </label>
+        <p class="container-ticket-value">
+          {{object.fecha_nacimiento}}
+        </p>
+      </div>
+    </div>
+    <div class="container-dual-ticket ">
+      <div class="container-ticket">
+        <label class="container-ticket-label">
+          Género
+        </label>
+        <p class="container-ticket-value">
+            {{object.genero}}
+        </p>
+      </div>
+      <div class="container-ticket">
+        <label class="container-ticket-label">
+         Esta en el rango de edad
+        </label>
+        <p class="container-ticket-value">
+          de {{object.rango_edad}} Año(s)
+        </p>
+      </div>
+    </div>
+    <div class="container-dual-ticket ">
+      <div class="container-ticket">
+        <p class="container-ticket-value-small" id="Auspiciador">
+          Jesús tu Alcalde amigo: <span>"Despegando hacia el futuro."</span>
+        </p>
+      </div>
+      <figure class="ticket-left-modulo-small">
+        <img src="{% static "imagenes/png/Escudo_San_Andres.png" %}" alt="" />
+      </figure>
+    </div>
+  </div>
+</div>
+<div class="componente">
+  <div class="container-submit background-red ">
+    <input type="button" class="submit color-white text-shadow-black " value="Imprimir Ticket">
+  </div>
+</div>
+{%endblock section%}
