@@ -9,6 +9,7 @@ django-widget-tweaks==1.4.1
 djangorestframework==3.4.5
 Pillow==3.4.2
 pyodbc==3.0.10
+qrcode==5.3
 six==1.10.0
 sql-server.pyodbc==1.0
 virtualenv==15.0.3

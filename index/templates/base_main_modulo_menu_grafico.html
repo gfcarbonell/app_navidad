@@ -7,24 +7,24 @@
 			Bienvenidos
 		</p>
 		<p class="sub-rayado background-red">
-			
+
 		</p>
 	</div>
 	<div class="section-modulo">
 		<!-- Menu -->
 		<ul class="menu">
-			 {%for catalogo_modulo_menu in catalogos_modulos_menus%} 
+			 {%for catalogo_modulo_menu in catalogos_modulos_menus%}
 			<!-- Menu - Item -->
 			<li class="menu-item">
 				<!-- Menu - Item - Container -->
 				<figure class="menu-item-container ">
 					<!-- Menu - Item - Container - Imagen -->
-					<img 
-					src="{% block imagen_src %} {{catalogo_modulo_menu.imagen.url}} {% endblock imagen_src %}" 
-					alt="{% block imagen_alt %} {{catalogo_modulo_menu.modulo}} {% endblock imagen_alt %}" 
+					<img
+					src="{% block imagen_src %} {{catalogo_modulo_menu.imagen.url}} {% endblock imagen_src %}"
+					alt="{% block imagen_alt %} {{catalogo_modulo_menu.modulo}} {% endblock imagen_alt %}"
 					class="menu-item-container-imagen">
 					<!-- Menu - Item - Container - Nombre -->
-					<figcaption  class="menu-item-container-nombre border-white-1 border-radius-medium box-shadow-black-transparent 
+					<figcaption  class="menu-item-container-nombre border-white-1 border-radius-medium box-shadow-black-transparent
 					{% block background_nombre_item %} background-verde-pastel {% endblock background_nombre_item %}">
 						<!-- Menu - Item - Container -Imagen - Link -->
 						<a href="{{catalogo_modulo_menu.url}}" class="link text-shadow-black font-weight-bolder ">
@@ -33,7 +33,7 @@
 					</figcaption>
 				</figure>
 			</li>
-			{% endfor %} 
+			{% endfor %}
 		</ul>
 	</div>
 {% endblock section %}
