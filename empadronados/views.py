@@ -14,8 +14,10 @@ import datetime
 import qrcode
 from django.core.files import File
 import os
+from .mixins import AccessUserRequiredMixin
 
-class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
+
+class EmpadronadoCreateView(TipoPerfilUsuarioMixin, AccessUserRequiredMixin, CreateView):
     template_name = 'empadronado_create.html'
     model         = Empadronado
     success_url   = reverse_lazy('empadronado:control')
@@ -61,7 +63,7 @@ class EmpadronadoCreateView(TipoPerfilUsuarioMixin, CreateView):
         return context
 
 
-class EmpadronadoUpdateView(TipoPerfilUsuarioMixin, UpdateView):
+class EmpadronadoUpdateView(TipoPerfilUsuarioMixin, AccessUserRequiredMixin, UpdateView):
     form_class      = EmpadronadoModelForm
     success_url     = reverse_lazy('empadronado:control')
     template_name   = 'empadronado_update.html'
@@ -92,7 +94,7 @@ class EmpadronadoUpdateView(TipoPerfilUsuarioMixin, UpdateView):
         return super(EmpadronadoUpdateView, self).form_valid(form)
 
 
-class EmpadronadoReportListView(PaginationMixin, TipoPerfilUsuarioMixin, ListView):
+class EmpadronadoReportListView(PaginationMixin, TipoPerfilUsuarioMixin, AccessUserRequiredMixin, ListView):
     model         = Empadronado
     template_name = 'empadronado_report.html'
     paginate_by   = 25
@@ -266,7 +268,7 @@ class EmpadronadoReportListView(PaginationMixin, TipoPerfilUsuarioMixin, ListVie
         return queryset
 
 
-class EmpadronadoControlListView(PaginationMixin, TipoPerfilUsuarioMixin, ListView):
+class EmpadronadoControlListView(PaginationMixin, TipoPerfilUsuarioMixin, AccessUserRequiredMixin, ListView):
     model         = Empadronado
     template_name = 'empadronados.html'
     paginate_by   = 10
@@ -301,7 +303,7 @@ class EmpadronadoControlListView(PaginationMixin, TipoPerfilUsuarioMixin, ListVi
         return queryset
 
 
-class EmpadronadoDetailView(TipoPerfilUsuarioMixin, DetailView):
+class EmpadronadoDetailView(TipoPerfilUsuarioMixin, AccessUserRequiredMixin, DetailView):
     template_name   = 'empadronado_detail.html'
     model           = Empadronado
     queryset        = Empadronado.objects.all()
@@ -316,7 +318,7 @@ class EmpadronadoDetailView(TipoPerfilUsuarioMixin, DetailView):
         return context
 
 
-class EmpadronadoSearchQRListView(TipoPerfilUsuarioMixin, ListView):
+class EmpadronadoSearchQRListView(TipoPerfilUsuarioMixin, AccessUserRequiredMixin, ListView):
     template_name   = 'empadronado_search_qr.html'
     model           = Empadronado
 
@@ -346,7 +348,7 @@ class EmpadronadoSearchQRListView(TipoPerfilUsuarioMixin, ListView):
         return queryset
 
 
-class EmpadronadoPrintTicketDetailView(TipoPerfilUsuarioMixin, DetailView):
+class EmpadronadoPrintTicketDetailView(TipoPerfilUsuarioMixin, AccessUserRequiredMixin, DetailView):
     template_name   = 'empadronado_ticket.html'
     model           = Empadronado
     queryset        = Empadronado.objects.all()

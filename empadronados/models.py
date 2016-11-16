@@ -30,6 +30,14 @@ class Empadronado(Persona):
 															default='default/No_Avatar_1.png',
 															validators=[valid_extension]
 														)
+	numero_ticket						= models.PositiveSmallIntegerField(
+																		default = 0,
+																		unique=True,
+																		verbose_name='Número Ticket',
+																		)
+
+
+
 	activo 							= models.BooleanField(choices=BOOL_ACTIVO, default=True)
 
 		#Métodos

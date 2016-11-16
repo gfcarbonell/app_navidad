@@ -1,0 +1,92 @@
+{% extends 'base_detail.html '%}
+{% load static from staticfiles %}
+{% block titulo_perfil %} Empadronado {% endblock titulo_perfil %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Navidad_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Empadronamiento Municipal {% endblock alt_avatar_modulo %}"
+{% block url_menu_control %} {% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %} {% endblock url_menu_control %}
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+{% block detalle_left_container %}
+<div>
+	<form class="" action="" method="get">
+		<!-- Código -->
+		<div class="componente-panel">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="id" class="font-weight-bolder label-panel ">
+					Código Empadronado
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel">
+					<input type="text" id="id" name="codigo_barra_qr" class="input-field-default">
+				</div>
+			</div>
+		</div>
+		<div class="componente-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="id_read_codigo_barra_qr" class="font-weight-bolder label-panel ">
+				Código QR
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel" id="container_read_codigo_barra_qr">
+				<div id="id_read_codigo_barra_qr" style="width:250px;height:250px" class="margin-auto-left-right border-black-2">
+
+				</div>
+			</div>
+			<div class="padding-up-down-1 ">
+				<p class="display-block margin-auto-left-right text-center font-weight-bolder">
+					<span class="color-red">
+						Código:
+					</span>
+					<span class="color-black">
+						0000000000
+					</span>
+				</p>
+			</div>
+		</div>
+	</form>
+</div>
+<script type="text/javascript" src="{% static "javascriptdev/libreria/jquery-3.1.1.min.js" %}"/></script>
+<script type="text/javascript" src="{% static "javascriptdev/libreria/jsqrcode-combined.min.js" %}"/></script>
+<script type="text/javascript" src="{% static "javascriptdev/libreria/html5-qrcode.min.js" %}"/></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	var video = $("#id_read_codigo_barra_qr");
+
+	console.log("ok");
+	$('#id_read_codigo_barra_qr').html5_qrcode(function(data){
+					alert("ok: " + data);
+			},
+			function(error){
+					//show read errors
+			}, function(videoError){
+					//the video stream could be opened
+			}
+	);
+
+
+});
+</script>
+
+{% endblock detalle_left_container %}
+{% block detalle_right_container %}
+
+{% endblock detalle_right_container %}
+
+{% block script_template %}
+  <script id ="lector_codigo_barra_qr_template" type="text/template">
+
+  </script>
+{% endblock script_template %}
